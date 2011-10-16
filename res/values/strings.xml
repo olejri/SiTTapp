@@ -3,4 +3,6 @@
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">SiTTapp</string>
     <string name="topbar">topbar</string>
+    <string name="mainlayout">mainlayout</string>
+    <string name="frontlayout">frontlayout</string>
 </resources>

@@ -3,20 +3,18 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1">
-    <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:id="@string/topbar">
-        <RelativeLayout android:layout_height="wrap_content" android:id="@+id/RelativeLayout1" android:layout_width="wrap_content" android:layout_centerVertical="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true">
-            <Button android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:text="Button" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-            <Button android:layout_height="wrap_content" android:text="Button" android:id="@+id/button2" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true"></Button>
-            <Button android:layout_height="wrap_content" android:text="Button" android:id="@+id/button3" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></Button>
-        </RelativeLayout>
+    android:weightSum="1" android:id="@string/mainlayout">
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@string/topbar" android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:id="@string/frontlayout">
+        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignTop="@+id/gbutton" android:layout_toRightOf="@+id/gbutton" android:id="@+id/tbutton" android:text="Treningsbok"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/sbutton" android:layout_alignTop="@+id/tbutton" android:layout_toRightOf="@+id/tbutton" android:text="Treningsnettverk"></Button>
+        <Button android:layout_height="wrap_content" android:text="Gruppetime" android:layout_width="wrap_content" android:id="@+id/gbutton" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_marginTop="104dp"></Button>
+        <Gallery android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="150dip" android:minHeight="150dip" android:id="@+id/gallery1" android:layout_below="@+id/tbutton" android:layout_centerHorizontal="true" android:layout_marginTop="46dp"></Gallery>
     </RelativeLayout>
-    <RelativeLayout android:layout_height="wrap_content" android:id="@+id/relativeLayout1" android:layout_width="wrap_content" android:layout_below="@string/topbar" android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true">
-        <RelativeLayout android:layout_height="wrap_content" android:id="@+id/RelativeLayout1" android:orientation="vertical" android:layout_width="wrap_content">
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@string/topbar" android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
+        <TextView android:layout_height="wrap_content" android:text="Mandag" android:id="@+id/open" android:layout_width="wrap_content" android:layout_alignTop="@+id/textView1" android:layout_alignParentRight="true"></TextView>
+        <ImageView android:layout_width="wrap_content" android:id="@+id/people" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:src="@drawable/ic_menu_cc"></ImageView>
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/peoplewrap" android:layout_centerVertical="true" android:layout_toRightOf="@+id/people">
+            <TextView android:layout_height="wrap_content" android:text="230" android:id="@+id/people" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"></TextView>
         </RelativeLayout>
-        <Button android:layout_height="wrap_content" android:text="Button" android:id="@+id/button4" android:layout_width="wrap_content" android:layout_below="@+id/RelativeLayout1" android:layout_toRightOf="@+id/RelativeLayout1" android:layout_marginLeft="53dp" android:layout_marginTop="109dp"></Button>
-        <Button android:layout_height="wrap_content" android:text="Button" android:id="@+id/button5" android:layout_width="wrap_content" android:layout_alignBottom="@+id/button4" android:layout_toRightOf="@+id/button4"></Button>
-        <Button android:layout_height="wrap_content" android:text="Button" android:id="@+id/button6" android:layout_width="wrap_content" android:layout_alignBottom="@+id/button5" android:layout_toRightOf="@+id/button5"></Button>
-        <ImageView android:layout_height="100dip" android:src="@android:drawable/editbox_dropdown_light_frame" android:id="@+id/imageView1" android:layout_width="100dip" android:layout_below="@+id/button4" android:layout_centerHorizontal="true" android:layout_marginTop="34dp"></ImageView>
     </RelativeLayout>
 </RelativeLayout>
