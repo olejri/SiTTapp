@@ -41,7 +41,17 @@ public class MainActivity extends Activity {
     public void toTrainingBook(View v) {
         Intent myIntent = new Intent(v.getContext(), TrainingBookActivity.class);
         startActivityForResult(myIntent, 0);        
-    }  
+    } 
+
+    public void toJointTraining(View v) {
+        Intent myIntent = new Intent(v.getContext(), JointTrainingActivity.class);
+        startActivityForResult(myIntent, 0);        
+    }
+
+    public void toTrainingNetwork(View v) {
+        Intent myIntent = new Intent(v.getContext(), TrainingNetworkActivity.class);
+        startActivityForResult(myIntent, 0);        
+    } 
    //testing Gallery widget
     public class ImageAdapter extends BaseAdapter {
         int mGalleryItemBackground;

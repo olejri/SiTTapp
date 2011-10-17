@@ -57,13 +57,20 @@ public class CustomPlanActivity extends ListActivity {
      final CharSequence[] items = {"Gruppetime", "Styrke", "Kondisjon"};
 
      AlertDialog.Builder builder = new AlertDialog.Builder(this);
+     final AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
      builder.setTitle("Velg type");
+     builder2.setTitle("Velg type");
      builder.setItems(items, new DialogInterface.OnClickListener() {
          public void onClick(DialogInterface dialog, int item) {
-             Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+             AlertDialog alert2 = builder2.create();
+             switch (item) {
+             case 0: alert2.show();
+             }
+             //Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
          }
      });
      AlertDialog alert = builder.create();
+     
      alert.show();
  }
     

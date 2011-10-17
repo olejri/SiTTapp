@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/tbalayout">
-    <Button android:id="@+id/button2" android:layout_width="wrap_content" android:text="Standardisert plan" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="117dp"></Button>
+    <Button android:id="@+id/button2" android:layout_width="wrap_content" android:text="Standardisert plan" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="117dp" android:clickable="true" android:onClick="toStandardizedPlan"></Button>
     <Button android:id="@+id/button1" android:layout_width="wrap_content" android:text="Egendefinert plan" android:layout_height="wrap_content" android:layout_below="@+id/button2" android:layout_alignLeft="@+id/button2" android:layout_alignRight="@+id/button2" android:clickable="true" android:onClick="toCustomPlan"></Button>
-    <Button android:id="@+id/button3" android:layout_width="wrap_content" android:text="Logg" android:layout_height="wrap_content" android:layout_below="@+id/button1" android:layout_alignLeft="@+id/button1" android:layout_alignRight="@+id/button1"></Button>
+    <Button android:id="@+id/button3" android:layout_width="wrap_content" android:text="Logg" android:layout_height="wrap_content" android:layout_below="@+id/button1" android:layout_alignLeft="@+id/button1" android:layout_alignRight="@+id/button1" android:clickable="true" android:onClick="toLog"></Button>
 </RelativeLayout>
