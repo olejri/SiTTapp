@@ -14,16 +14,18 @@ import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
+import sittapp.com.HttpCom;
 
 public class MainActivity extends Activity {
+	HttpCom com = new HttpCom();
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        
-        
+        //com.ajaxTest();
         //Testing github
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
