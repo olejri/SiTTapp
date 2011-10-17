@@ -4,17 +4,19 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@string/mainlayout">
-    <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@string/topbar" android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:id="@string/frontlayout">
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@string/topbar" android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:id="@string/frontlayout" android:background="@color/lgrey">
         <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignTop="@+id/gbutton" android:layout_toRightOf="@+id/gbutton" android:id="@+id/tbutton" android:text="Treningsbok" android:clickable="true" android:onClick="toTrainingBook"></Button>
         <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/sbutton" android:layout_alignTop="@+id/tbutton" android:layout_toRightOf="@+id/tbutton" android:text="Treningsnettverk" android:clickable="true" android:onClick="toTrainingNetwork"></Button>
         <Button android:layout_height="wrap_content" android:text="Gruppetime" android:layout_width="wrap_content" android:id="@+id/gbutton" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_marginTop="104dp" android:clickable="true" android:onClick="toJointTraining"></Button>
         <Gallery xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="150dip" android:minHeight="150dip" android:layout_below="@+id/tbutton" android:layout_centerHorizontal="true" android:layout_marginTop="46dp" android:id="@+id/window"></Gallery>
+        <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" style="@style/MainText" android:id="@+id/mainText" android:text="SiTTapp" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="22dp"></TextView>
     </RelativeLayout>
     <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@string/topbar" android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
-        <TextView android:layout_height="wrap_content" android:text="Mandag" android:id="@+id/open" android:layout_width="wrap_content" android:layout_alignTop="@+id/textView1" android:layout_alignParentRight="true"></TextView>
+        <TextView android:layout_height="wrap_content" android:text="Mandag" android:id="@+id/open" android:layout_width="wrap_content" android:layout_alignTop="@+id/textView1" android:layout_alignParentRight="true" style="@style/regText"></TextView>
         <ImageView android:layout_width="wrap_content" android:id="@+id/people" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:src="@drawable/ic_menu_cc"></ImageView>
         <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/peoplewrap" android:layout_centerVertical="true" android:layout_toRightOf="@+id/people">
-            <TextView android:layout_height="wrap_content" android:text="230" android:id="@+id/people" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"></TextView>
+            <TextView android:layout_height="wrap_content" android:text="230" android:id="@+id/people" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" style="@style/regText"></TextView>
         </RelativeLayout>
+        <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/imageButton1" android:src="@drawable/sit" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></ImageButton>
     </RelativeLayout>
 </RelativeLayout>

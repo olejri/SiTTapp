@@ -5,13 +5,18 @@
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/tbalayout">
     <TabHost android:id="@android:id/tabhost" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
-        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:weightSum="1">
             <TabWidget android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@android:id/tabs"></TabWidget>
-            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@android:id/tabcontent">
+            <FrameLayout android:layout_width="fill_parent" android:id="@android:id/tabcontent" android:layout_height="318dp">
                 <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab1"></LinearLayout>
                 <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab2"></LinearLayout>
                 <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab3"></LinearLayout>
             </FrameLayout>
+            <RelativeLayout android:id="@+id/botmenu" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <Button android:layout_width="wrap_content" android:text="Styrke" android:layout_height="wrap_content" android:id="@+id/button2" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></Button>
+                <Button android:layout_width="wrap_content" android:text="Gruppetime" android:layout_height="wrap_content" android:id="@+id/button1" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/button2"></Button>
+                <Button android:layout_width="wrap_content" android:text="Kondisjon" android:layout_height="wrap_content" android:id="@+id/button3" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/button2"></Button>
+            </RelativeLayout>
         </LinearLayout>
     </TabHost>
 </RelativeLayout>
