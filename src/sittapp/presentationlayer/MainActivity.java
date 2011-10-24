@@ -82,10 +82,10 @@ public class MainActivity extends Activity {
         private Context mContext;
 
         private Integer[] mImageIds = {
-                R.drawable.play,
-                R.drawable.happyface,
+                R.drawable.hurtigtrening,
+                R.drawable.hurtigtrening_trykt_inn,
                 R.drawable.pause,
-                R.drawable.fun
+                R.layout.pmlayout
         };
 
         public ImageAdapter(Context c) {
