@@ -1,10 +1,14 @@
 /**
  * 
  */
-package sittapp.presentationlayer;
+package sittapp.presentationlayer.plan;
 
 
 import java.util.ArrayList;
+
+import sittapp.presentationlayer.R;
+import sittapp.presentationlayer.R.id;
+import sittapp.presentationlayer.R.layout;
 
 
 

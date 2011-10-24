@@ -1,7 +1,7 @@
 /**
  * 
  */
-package sittapp.presentationlayer;
+package sittapp.presentationlayer.log;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ super.onCreate(savedInstanceState);
 /* First Tab Content */
 TextView textView = new TextView(this);
 textView.setText("Logg for dag");
-setContentView(textView);
+
 
 }
 }

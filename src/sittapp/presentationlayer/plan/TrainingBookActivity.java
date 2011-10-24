@@ -1,9 +1,12 @@
 /**
  * 
  */
-package sittapp.presentationlayer;
+package sittapp.presentationlayer.plan;
 
 
+import sittapp.presentationlayer.R;
+import sittapp.presentationlayer.R.layout;
+import sittapp.presentationlayer.log.LogActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,10 +33,7 @@ public class TrainingBookActivity extends Activity {
         Intent myIntent = new Intent(v.getContext(), StandardizedPlanActivity.class);
         startActivityForResult(myIntent, 0);        
     }    
-    public void toLog(View v) {
-        Intent myIntent = new Intent(v.getContext(), LogActivity.class);
-        startActivityForResult(myIntent, 0);        
-    }
+    
     
 
 }

@@ -1,6 +1,9 @@
-package sittapp.presentationlayer;
+package sittapp.presentationlayer.joint;
 
 import java.util.ArrayList;
+
+import sittapp.presentationlayer.R;
+import sittapp.presentationlayer.R.layout;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Bundle;

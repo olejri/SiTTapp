@@ -13,15 +13,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TrainingBookActivity"></activity>
-        <activity android:name=".CustomPlanActivity"></activity>
-        <activity android:name=".JointTrainingActivity"></activity>
-        <activity android:name=".LogActivity"></activity>
-        <activity android:name=".StandardizedPlanActivity"></activity>
-        <activity android:name=".TrainingNetworkActivity"></activity>
-        <activity android:name=".DayTab"></activity>
-        <activity android:name=".WeekTab"></activity>
-        <activity android:name=".MonthTab"></activity>
+        <activity android:name=".plan.TrainingBookActivity"></activity>
+        <activity android:name=".plan.CustomPlanActivity"></activity>
+        <activity android:name=".joint.JointTrainingActivity"></activity>
+        <activity android:name=".log.LogActivity"></activity>
+        <activity android:name=".plan.StandardizedPlanActivity"></activity>
+        <activity android:name=".network.TrainingNetworkActivity"></activity>
+        <activity android:name=".log.DayTab"></activity>
+        <activity android:name=".log.WeekTab"></activity>
+        <activity android:name=".log.MonthTab"></activity>
+        <activity android:name=".info.InfoActivity"></activity>
+        <activity android:name=".front.QuickInfoActivity"></activity>
         
 
         

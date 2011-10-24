@@ -8,14 +8,20 @@
         <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:weightSum="1">
             <TabWidget android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@android:id/tabs"></TabWidget>
             <FrameLayout android:layout_width="fill_parent" android:id="@android:id/tabcontent" android:layout_height="318dp">
-                <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab1"></LinearLayout>
-                <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab2"></LinearLayout>
-                <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab3"></LinearLayout>
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/day">
+                    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_marginTop="100dip" android:id="@+id/test1" android:layout_marginLeft="100dip" android:layout_height="wrap_content" android:text="TextView"></TextView>
+                </LinearLayout>
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/week">
+                    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" android:id="@+id/test2" android:layout_marginLeft="100dip" android:layout_marginTop="100dip"></TextView>
+                </LinearLayout>
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/month">
+                    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" android:id="@+id/test3" android:layout_marginTop="100dip" android:layout_marginLeft="100dip"></TextView>
+                </LinearLayout>
             </FrameLayout>
             <RelativeLayout android:id="@+id/botmenu" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                <Button android:layout_width="wrap_content" android:text="Styrke" android:layout_height="wrap_content" android:id="@+id/button2" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></Button>
-                <Button android:layout_width="wrap_content" android:text="Gruppetime" android:layout_height="wrap_content" android:id="@+id/button1" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/button2"></Button>
-                <Button android:layout_width="wrap_content" android:text="Kondisjon" android:layout_height="wrap_content" android:id="@+id/button3" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/button2"></Button>
+                <Button android:layout_width="wrap_content" android:text="Styrke" android:layout_height="wrap_content" android:id="@+id/button2" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:onClick="showStrength" android:clickable="true"></Button>
+                <Button android:layout_width="wrap_content" android:text="Gruppetime" android:layout_height="wrap_content" android:id="@+id/button1" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/button2" android:clickable="true" android:onClick="showJoint"></Button>
+                <Button android:layout_width="wrap_content" android:text="Kondisjon" android:layout_height="wrap_content" android:id="@+id/button3" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/button2" android:onClick="showEndurance" android:clickable="true"></Button>
             </RelativeLayout>
         </LinearLayout>
     </TabHost>

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package sittapp.presentationlayer;
+package sittapp.presentationlayer.log;
 
 import android.app.Activity;
 import android.os.Bundle;

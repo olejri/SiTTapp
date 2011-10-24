@@ -15,6 +15,12 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
 import sittapp.com.HttpCom;
+import sittapp.presentationlayer.front.QuickInfoActivity;
+import sittapp.presentationlayer.info.InfoActivity;
+import sittapp.presentationlayer.joint.JointTrainingActivity;
+import sittapp.presentationlayer.log.LogActivity;
+import sittapp.presentationlayer.network.TrainingNetworkActivity;
+import sittapp.presentationlayer.plan.TrainingBookActivity;
 
 public class MainActivity extends Activity {
 	HttpCom com = new HttpCom();
@@ -32,8 +38,10 @@ public class MainActivity extends Activity {
 
         gallery.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-            }
+                Intent myIntent = new Intent(v.getContext(), QuickInfoActivity.class);
+                myIntent.putExtra("pos", position);
+                startActivityForResult(myIntent, 0); 
+              }
         });
     }
     
@@ -56,7 +64,18 @@ public class MainActivity extends Activity {
     public void toTrainingNetwork(View v) {
         Intent myIntent = new Intent(v.getContext(), TrainingNetworkActivity.class);
         startActivityForResult(myIntent, 0);        
-    } 
+    }
+    
+    public void toLog(View v) {
+        Intent myIntent = new Intent(v.getContext(), LogActivity.class);
+        startActivityForResult(myIntent, 0);        
+    }
+    
+    public void toInfo(View v) {
+        Intent myIntent = new Intent(v.getContext(), InfoActivity.class);
+        startActivityForResult(myIntent, 0);        
+    }
+    
    //testing Gallery widget
     public class ImageAdapter extends BaseAdapter {
         int mGalleryItemBackground;
