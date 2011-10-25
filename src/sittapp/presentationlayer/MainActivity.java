@@ -21,6 +21,7 @@ import sittapp.presentationlayer.joint.JointTrainingActivity;
 import sittapp.presentationlayer.log.LogActivity;
 import sittapp.presentationlayer.network.TrainingNetworkActivity;
 import sittapp.presentationlayer.plan.TrainingBookActivity;
+import sittapp.model.*;
 
 public class MainActivity extends Activity {
 	HttpCom com = new HttpCom();
@@ -31,7 +32,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        //com.ajaxTest();
+        User user = com.login("Andriod");
         //Testing github
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
