@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,16 +15,25 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
 import sittapp.com.HttpCom;
+import sittapp.model.*;
 
 public class MainActivity extends Activity {
 	HttpCom com = new HttpCom();
+	final static String LOG_TAG = "MainAct";
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        //com.ajaxTest();
+        User user = com.login("Andriod");
+        Log.d("MainActivityData", user.toString());
+        for (Gang g : user.getGangs()) {
+        	Log.d("Gang", g.toString());
+        }
+        for (Gang g : user.getGangInvites()) {
+        	Log.d("Gang invite", g.toString());
+        }
         //Testing github
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
