@@ -17,20 +17,15 @@ import sittapp.model.*;
 public class HttpCom {
 	final static String LOG_TAG = "HttpCom";
 	
-	public User login(String name) {
-		//JSONObject jsoncli = RestJsonClient.connect(url);
+	/**
+	 * Soft method to log in with user
+	 * @param username Username of user that is logging in.
+	 * @return the user data in a User object.
+	 */
+	public User login(String username) {
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
-        qparams.add(new BasicNameValuePair("name", name));
-        
-        //String result = "{'name':'Andriod','gangs':[1],'gangInvites':[2,3],'gangobjs':[{'id':1,'name':'Datagutta','users':['Andriod']}],'ganginvobjs':[{'id':2,'name':'Datagutta','users':[]},{'id':3,'name':'Dudes','users':[]}]}";
+        qparams.add(new BasicNameValuePair("name", username));
         JSONObject json = RestJsonClient.connect("/login", qparams);
-        /*
-		try {
-			json = new JSONObject(result);
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/
 		Log.d(LOG_TAG, "INC LOGGIN RES");
 		Log.d("JSON_DATA", json.toString());
 		try {
@@ -55,11 +50,55 @@ public class HttpCom {
 			}
 			return user;
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @param username Username of current application user
+	 * @param gangName Desired name on gang.
+	 * @return (Bool) If the creation was successful.
+	 */
+	public Gang gangCreate(String username, String gangName) {
+        List<NameValuePair> qparams = new ArrayList<NameValuePair>();
+        qparams.add(new BasicNameValuePair("username", username));
+        qparams.add(new BasicNameValuePair("gangname", gangName));
+        JSONObject json = RestJsonClient.connect("/gangcreate", qparams);
+        return JSONtoGang(json);
+	}
+	
+	/**
+	 * 
+	 * @param gangId Id of gang a user should be invited to
+	 * @param username Username of user to be invited
+	 * @return (Bool) If the creation was successful.
+	 */
+	public boolean gangInvite(Long gangId, String username) {
+        List<NameValuePair> qparams = new ArrayList<NameValuePair>();
+        qparams.add(new BasicNameValuePair("gangid", ""+gangId));
+        qparams.add(new BasicNameValuePair("username", ""+username));
+        JSONObject json = RestJsonClient.connect("/ganginvite", qparams);
+        return checkIfOk(json, "gangInvite");
+	}
+	
+	/**
+	 * 
+	 * @param gangId Id of gang user are accepting invitation to.
+	 * @param username Username for user accepting the invitation
+	 * @return (Bool) If the creation was successful.
+	 */
+	public boolean gangAccept(Long gangId, String username) {
+        List<NameValuePair> qparams = new ArrayList<NameValuePair>();
+        qparams.add(new BasicNameValuePair("gangid", ""+gangId));
+        qparams.add(new BasicNameValuePair("username", ""+username));
+        JSONObject json = RestJsonClient.connect("/gangaccept", qparams);
+        return checkIfOk(json, "gangAccept");
+	}
+	
+	// ******** PRIVATE METHODS ********
+	// *********************************
 	
 	private Gang JSONtoGang(JSONObject json) {
 		Gang gang = null;
@@ -68,13 +107,38 @@ public class HttpCom {
 			JSONArray jsonGangUsers = json.getJSONArray("users");
 			for (int y = 0; y<jsonGangUsers.length(); y++) {
 				String name = (String) jsonGangUsers.get(y);
-				Log.d(LOG_TAG, "name gotten: "+ name);
 				gang.addMember(new GangMember(name));
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return gang;
 	}
+	
+	private boolean checkIfOk(JSONObject json, String msgTag) {
+        String msg = null;
+		try {
+			msg = json.getString("MSG");
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+        if (msg.equals("OK")) {
+        	Log.d(LOG_TAG, msgTag+" - success");
+        	return true;
+        }
+        else {
+        	Log.d(LOG_TAG, msgTag+" - failure");
+        	return false;
+        }
+	}
+	
+	/// BACKUP SHIZZLE
+	
+    /*
+    String result = "{'name':'Andriod','gangs':[1],'gangInvites':[2,3],'gangobjs':[{'id':1,'name':'Datagutta','users':['Andriod']}],'ganginvobjs':[{'id':2,'name':'Datagutta','users':[]},{'id':3,'name':'Dudes','users':[]}]}";
+	try {
+		json = new JSONObject(result);
+	} catch (JSONException e1) {
+		e1.printStackTrace();
+	}*/
 }
