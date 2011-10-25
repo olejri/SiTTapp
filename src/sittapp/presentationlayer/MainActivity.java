@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -15,33 +15,33 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
 import sittapp.com.HttpCom;
-import sittapp.model.*;
+import sittapp.presentationlayer.front.QuickInfoActivity;
+import sittapp.presentationlayer.info.InfoActivity;
+import sittapp.presentationlayer.joint.JointTrainingActivity;
+import sittapp.presentationlayer.log.LogActivity;
+import sittapp.presentationlayer.network.TrainingNetworkActivity;
+import sittapp.presentationlayer.plan.TrainingBookActivity;
 
 public class MainActivity extends Activity {
 	HttpCom com = new HttpCom();
-	final static String LOG_TAG = "MainAct";
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        User user = com.login("Andriod");
-        Log.d("MainActivityData", user.toString());
-        for (Gang g : user.getGangs()) {
-        	Log.d("Gang", g.toString());
-        }
-        for (Gang g : user.getGangInvites()) {
-        	Log.d("Gang invite", g.toString());
-        }
+        //com.ajaxTest();
         //Testing github
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
 
         gallery.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-            }
+                Intent myIntent = new Intent(v.getContext(), QuickInfoActivity.class);
+                myIntent.putExtra("pos", position);
+                startActivityForResult(myIntent, 0); 
+              }
         });
     }
     
@@ -64,17 +64,28 @@ public class MainActivity extends Activity {
     public void toTrainingNetwork(View v) {
         Intent myIntent = new Intent(v.getContext(), TrainingNetworkActivity.class);
         startActivityForResult(myIntent, 0);        
-    } 
+    }
+    
+    public void toLog(View v) {
+        Intent myIntent = new Intent(v.getContext(), LogActivity.class);
+        startActivityForResult(myIntent, 0);        
+    }
+    
+    public void toInfo(View v) {
+        Intent myIntent = new Intent(v.getContext(), InfoActivity.class);
+        startActivityForResult(myIntent, 0);        
+    }
+    
    //testing Gallery widget
     public class ImageAdapter extends BaseAdapter {
         int mGalleryItemBackground;
         private Context mContext;
 
         private Integer[] mImageIds = {
-                R.drawable.play,
-                R.drawable.happyface,
+                R.drawable.hurtigtrening,
+                R.drawable.hurtigtrening_trykt_inn,
                 R.drawable.pause,
-                R.drawable.fun
+                R.layout.pmlayout
         };
 
         public ImageAdapter(Context c) {
