@@ -1,16 +1,13 @@
 package sittapp.com;
+
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.HttpParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.util.Log;
-
 import sittapp.com.RestJsonClient;
 import sittapp.model.*;
 
@@ -59,7 +56,7 @@ public class HttpCom {
 	 * 
 	 * @param username Username of current application user
 	 * @param gangName Desired name on gang.
-	 * @return (Bool) If the creation was successful.
+	 * @return (Bool) If action was successful.
 	 */
 	public Gang gangCreate(String username, String gangName) {
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
@@ -73,7 +70,7 @@ public class HttpCom {
 	 * 
 	 * @param gangId Id of gang a user should be invited to
 	 * @param username Username of user to be invited
-	 * @return (Bool) If the creation was successful.
+	 * @return (Bool) If action was successful.
 	 */
 	public boolean gangInvite(Long gangId, String username) {
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
@@ -87,7 +84,7 @@ public class HttpCom {
 	 * 
 	 * @param gangId Id of gang user are accepting invitation to.
 	 * @param username Username for user accepting the invitation
-	 * @return (Bool) If the creation was successful.
+	 * @return (Bool) If action was successful.
 	 */
 	public boolean gangAccept(Long gangId, String username) {
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
@@ -97,8 +94,22 @@ public class HttpCom {
         return checkIfOk(json, "gangAccept");
 	}
 	
-	// ******** PRIVATE METHODS ********
-	// *********************************
+	/**
+	 * 
+	 * @param gangId Id of gang user are declining invitation to.
+	 * @param username User's username.
+	 * @return (Bool) If action was successful.
+	 */
+	public boolean gangDecline(Long gangId, String username) {
+        List<NameValuePair> qparams = new ArrayList<NameValuePair>();
+        qparams.add(new BasicNameValuePair("gangid", ""+gangId));
+        qparams.add(new BasicNameValuePair("username", ""+username));
+        JSONObject json = RestJsonClient.connect("/gangdecline", qparams);
+        return checkIfOk(json, "gangAccept");
+	}
+	
+	// ******** PRIVATE INTERNAL METHODS ********
+	// ******************************************
 	
 	private Gang JSONtoGang(JSONObject json) {
 		Gang gang = null;

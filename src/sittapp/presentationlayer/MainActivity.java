@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
         //Log.d("MainNewgang", newGang.toString());
         //boolean invited = com.gangInvite(newGang.getId(), "Nelich");
         //boolean accepted = com.gangAccept(newGang.getId(), "Nelich");
+        //boolean declined = com.gangDecline(newGang.getId(), "Nelich");
     }
     
     
