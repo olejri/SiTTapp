@@ -4,20 +4,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/tbalayout">
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/topborder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentLeft="true">
-        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/button1" android:layout_alignBottom="@+id/button1" android:layout_centerHorizontal="true" android:text="Gjenger"></TextView>
-        <Button android:layout_width="wrap_content" android:text="Pluss" android:id="@+id/button1" android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/LinearLayout01" android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
-        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/TextView01" android:layout_height="wrap_content" android:text="Gjenger"></TextView>
-        <Button android:layout_width="wrap_content" android:text="Pluss" android:id="@+id/Button01" android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_below="@+id/listview">
-        <ImageButton android:layout_width="wrap_content" android:src="@drawable/icon" android:id="@+id/imageButton1" android:layout_height="wrap_content"></ImageButton>
-    </LinearLayout>
+        <Button android:text="Pluss" android:layout_width="wrap_content" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:clickable="true" android:onClick="addGang"></Button>
+        <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Gjenger" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
+        <TextView android:layout_width="wrap_content" android:id="@+id/name" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_centerHorizontal="true"></TextView>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/RelativeLayout1" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_below="@+id/listview">
+        <ImageButton android:layout_width="wrap_content" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:visibility="invisible" android:id="@+id/invite" android:clickable="true" android:onClick="showGangInv"></ImageButton>
+    </RelativeLayout>
     <RelativeLayout android:id="@+id/listview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/topborder" android:layout_alignParentLeft="true">
         <ListView android:id="@+id/android:list" android:layout_width="fill_parent" android:layout_height="268dp"></ListView>
     </RelativeLayout>

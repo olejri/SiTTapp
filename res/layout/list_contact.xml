@@ -2,5 +2,5 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_height="fill_parent" android:layout_width="fill_parent">
-    <TextView android:text="TextView"  android:textSize="28sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/listcontact" android:paddingBottom="12dip" android:paddingTop="12dip"></TextView>
+    <TextView android:textSize="28sp" android:layout_height="wrap_content" android:id="@+id/listcontact" android:layout_width="fill_parent" android:text="GJENG"></TextView>
 </LinearLayout>
