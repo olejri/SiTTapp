@@ -33,7 +33,6 @@ public class RestJsonClient {
 			uri = URIUtils.createURI("http", url, -1, path, 
 			    URLEncodedUtils.format(qparams, "UTF-8"), null);
 		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
         HttpGet httpget = new HttpGet(uri);
@@ -54,19 +53,16 @@ public class RestJsonClient {
                 // A Simple JSON Response Read
                 InputStream instream = entity.getContent();
                 String result= convertStreamToString(instream);
-                Log.d("resultFromCall", result);
+                Log.d("RestJsonClient", result);
                 json=new JSONObject(result);
 
                 instream.close();
             }
         } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (JSONException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

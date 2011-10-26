@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -29,12 +30,10 @@ public class MainActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	comExamples();
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        
-        
-        //Testing github
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
 
@@ -45,6 +44,14 @@ public class MainActivity extends Activity {
                 startActivityForResult(myIntent, 0); 
               }
         });
+    }
+    
+    public void comExamples() {
+        User user = com.login("Andriod");
+        //Gang newGang = com.gangCreate("Andriod", "Bottlebois");
+        //Log.d("MainNewgang", newGang.toString());
+        //boolean invited = com.gangInvite(newGang.getId(), "Nelich");
+        //boolean accepted = com.gangAccept(newGang.getId(), "Nelich");
     }
     
     
