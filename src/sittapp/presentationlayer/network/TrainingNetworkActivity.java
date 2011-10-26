@@ -10,6 +10,7 @@ import sittapp.model.User;
 import sittapp.presentationlayer.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -44,13 +45,13 @@ public class TrainingNetworkActivity extends ListActivity {
     TextView gangName;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tnlayout);
         name = (TextView)findViewById(R.id.name);
         invite = (ImageButton)findViewById(R.id.invite);
-        
         login();
 
 
@@ -58,40 +59,62 @@ public class TrainingNetworkActivity extends ListActivity {
     public void makeList() {
         ListView lv = (ListView)findViewById(android.R.id.list);
         ArrayList <Gang> gang = user.getGangs();
+        for (Gang g : gang) {
+            Log.i("NAVN!", "" +g.getName());
+        }
         this.cA = new ContactAdapter(this, R.layout.list_contact, gang);
         setListAdapter(this.cA);
     }
 
     public void showGangInv(View v) {
-        alertDialogLoadFile();
+        acceptInv();
 
     }
     
-    public void alertDialogLoadFile() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Choose:");  
-        CharSequence[] items = { "moshe", "yosi", "ee" };
-        alert.setSingleChoiceItems(items , -1, new DialogInterface.OnClickListener() {
+    public void addGang(View v) {
+        Dialog dialog = new Dialog(this);
+        dialog.setTitle("Lag gjeng");
+        dialog.setContentView(R.layout.pmlayout);
+        
+        
+        dialog.show();
+    }
 
-            public void onClick(DialogInterface dialog, int item){
-                /* User clicked on a radio button do some stuff */
+    public void acceptInv() {
+        final ArrayList<Gang> gangInv = user.getGangInvites();
+        int size = gangInv.size();
+        final ArrayList<Gang> gangAcc = new ArrayList<Gang>();
+        boolean checked[] = new boolean[size];
+        String names[] = new String[size];
+        for (int i = 0; i < size; i++) {
+            names[i] = gangInv.get(i).getName();
+            checked[i] = false;
+        }
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Bli med i gjengen");  
+        alert.setMultiChoiceItems(names, checked,
+                new DialogInterface.OnMultiChoiceClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton, boolean isChecked) {
+                if (isChecked) {
+                    gangAcc.add(gangInv.get(whichButton));
+                }
+                /* User clicked on a check box do some stuff */
             }
         });
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-        }
+                for (Gang g : gangAcc) {
+                    com.gangAccept(g.getId(), user.getName());
+                }
+            }
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
         });
-        AlertDialog ad = alert.create();
-        ad.show();
-
+        alert.show();
     }
-
-
     public void login(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Logg inn");
@@ -119,7 +142,6 @@ public class TrainingNetworkActivity extends ListActivity {
         });
         alert.show();
     }
-
     public void checkForInv() {
         ArrayList<Gang> gangInvs = user.getGangInvites();
         if (gangInvs.size() > 0) {
@@ -145,6 +167,7 @@ public class TrainingNetworkActivity extends ListActivity {
 
     private class ContactAdapter extends ArrayAdapter<Gang> {
         private ArrayList<Gang> items;
+        int teller = 0;
         /**
          * 
          * @param context
@@ -154,6 +177,7 @@ public class TrainingNetworkActivity extends ListActivity {
         public ContactAdapter(Context context, int textViewResourceId, ArrayList<Gang> items) {
             super(context, textViewResourceId, items);
             this.items = items;
+
         }
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -162,31 +186,15 @@ public class TrainingNetworkActivity extends ListActivity {
                 LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 v = vi.inflate(R.layout.list_contact, null);
             }        
-            
-            Gang g = items.get(position);
+
+            Gang g = this.items.get(position);
             if (g != null) {
-                TextView gangName = (TextView) findViewById(R.id.listcontact);
+                TextView gangName = (TextView) v.findViewById(R.id.listcontact);
                 if (gangName != null) {
-                    gangName.setText(g.getName());             
+                    gangName.setText(g.getName()); 
                 }
-              
+
             }
-            
-            
-            
-            /*Button button= (Button)v.findViewById(R.id.testbutton);
-            button.setTag(new String(""+position));
-            button.setOnClickListener(new View.OnClickListener(){
-                //Getting the row where a button is clicked.(used to reserve a product from the list)
-                public void onClick(View v) {
-                    RelativeLayout parentRow = (RelativeLayout)v.getParent();
-                    Button btnChild = (Button)parentRow.getChildAt(3);
-                    int resIndex = Integer.parseInt(btnChild.getTag().toString());
-                    //Toast.makeText(getApplicationContext(), "du trykket på" + resIndex, Toast.LENGTH_SHORT).show();
-
-                }
-
-            });*/
             return v;
 
         }

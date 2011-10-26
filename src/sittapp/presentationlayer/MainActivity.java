@@ -32,7 +32,6 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	comExamples();
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
