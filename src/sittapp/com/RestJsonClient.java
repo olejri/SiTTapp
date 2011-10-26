@@ -36,7 +36,6 @@ public class RestJsonClient {
 			e1.printStackTrace();
 		}
         HttpGet httpget = new HttpGet(uri);
-        System.out.println(httpget.getURI());
 
         // Execute the request
         HttpResponse response;
@@ -53,7 +52,7 @@ public class RestJsonClient {
                 // A Simple JSON Response Read
                 InputStream instream = entity.getContent();
                 String result= convertStreamToString(instream);
-                Log.d("RestJsonClient", result);
+                Log.d("RestJsonClient", path+": "+result);
                 json=new JSONObject(result);
 
                 instream.close();

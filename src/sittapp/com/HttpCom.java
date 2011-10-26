@@ -23,8 +23,6 @@ public class HttpCom {
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
         qparams.add(new BasicNameValuePair("name", username));
         JSONObject json = RestJsonClient.connect("/login", qparams);
-		Log.d(LOG_TAG, "INC LOGGIN RES");
-		Log.d("JSON_DATA", json.toString());
 		try {
 			// Converting JSON to java objects.
 			// User data
@@ -35,7 +33,6 @@ public class HttpCom {
 				JSONObject jsong = jsonGangs.getJSONObject(i);
 				Gang gang = JSONtoGang(jsong);
 				user.addGang(gang);
-				Log.d(LOG_TAG, jsong.toString());
 			}
 			// Gang invites data
 			JSONArray jsonGangInvs = json.getJSONArray("ganginvobjs");
@@ -43,7 +40,6 @@ public class HttpCom {
 				JSONObject jsong = jsonGangInvs.getJSONObject(i);
 				Gang gang = JSONtoGang(jsong);
 				user.addGangInvite(gang);
-				Log.d(LOG_TAG, jsong.toString());
 			}
 			return user;
 		} catch (JSONException e) {
