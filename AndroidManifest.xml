@@ -28,6 +28,8 @@
         <activity android:name=".log.MonthTab"></activity>
         <activity android:name=".info.InfoActivity"></activity>
         <activity android:name=".front.QuickInfoActivity"></activity>
+        <activity android:name=".network.GangActivity"></activity>
+       
         
 
         

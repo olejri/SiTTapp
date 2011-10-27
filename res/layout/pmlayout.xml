@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/LinearLayout1"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_height="fill_parent" android:layout_width="fill_parent">
-    <RelativeLayout
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <EditText android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_width="wrap_content" android:id="@+id/editText1" android:layout_height="wrap_content" android:layout_weight="1" android:layout_alignParentRight="true"></EditText>
-        <EditText android:id="@+id/editText2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/editText1" android:layout_alignParentLeft="true" android:layout_alignParentRight="true">
-            <requestFocus></requestFocus>
-        </EditText>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/dialog">
+    <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView1" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:text="Opprett gjeng"></TextView>
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="300dip" android:layout_width="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_below="@+id/test">
+        <Button android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:text="Inviter" android:clickable="true"></Button>
+        <ListView android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/listView1" android:layout_centerHorizontal="true" android:layout_above="@+id/button1" android:layout_alignParentTop="true"></ListView>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/test" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/textView1" android:layout_alignParentLeft="true" android:layout_marginTop="16dp">
+        <EditText android:layout_below="@+id/editText1" android:layout_width="wrap_content" android:id="@+id/editText2" android:layout_height="wrap_content" android:layout_toLeftOf="@+id/button2" android:layout_alignParentLeft="true"></EditText>
+        <EditText android:layout_alignParentTop="true" android:layout_width="wrap_content" android:id="@+id/editText1" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignRight="@+id/editText2"></EditText>
+        <Button android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/editText1" android:layout_alignParentRight="true" android:text="Legg til" android:clickable="true"></Button>
     </RelativeLayout>
 </RelativeLayout>

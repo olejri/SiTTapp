@@ -8,14 +8,12 @@ import sittapp.com.HttpCom;
 import sittapp.model.Gang;
 import sittapp.model.User;
 import sittapp.presentationlayer.R;
-import sittapp.presentationlayer.front.QuickInfoActivity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -39,7 +37,7 @@ import android.content.SharedPreferences.Editor;
  * @author Nelich
  *
  */
-public class TrainingNetworkActivity extends ListActivity {
+public class GangActivity extends ListActivity {
     ContactAdapter cA;
     HttpCom com = new HttpCom();
     User user;
@@ -47,17 +45,19 @@ public class TrainingNetworkActivity extends ListActivity {
     Button invite;
     TextView gangName;
     StringAdapter sA;
-    private Context mContext = TrainingNetworkActivity.this;
+    private Context mContext = GangActivity.this;
 
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tnlayout);
-        name = (TextView)findViewById(R.id.name);
+        setContentView(R.layout.glayout);
+        name = (TextView)findViewById(R.id.gangName);
         invite = (Button)findViewById(R.id.invite);
-        login();
+        //login();
+        String con = getIntent().getStringExtra("name");
+        name.setText(con);
 
 
     }
@@ -93,7 +93,7 @@ public class TrainingNetworkActivity extends ListActivity {
                 String m = "" + gangM.getText();
                 invs.add(m);
                gangM.setText("");
-               TrainingNetworkActivity.this.sA.notifyDataSetChanged();
+               GangActivity.this.sA.notifyDataSetChanged();
             }
         });
         
@@ -107,7 +107,7 @@ public class TrainingNetworkActivity extends ListActivity {
                    
             }
                dialog.cancel();
-               TrainingNetworkActivity.this.cA.notifyDataSetChanged();
+               GangActivity.this.cA.notifyDataSetChanged();
             }
             
         });
@@ -173,7 +173,7 @@ public class TrainingNetworkActivity extends ListActivity {
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String value = "" + input.getText();
-                user = TrainingNetworkActivity.this.com.login(value);
+                user = GangActivity.this.com.login(value);
                 name.setText(user.getName());
                 makeList();
                 checkForInv();
@@ -209,10 +209,8 @@ public class TrainingNetworkActivity extends ListActivity {
     protected void onListItemClick(ListView lv, View v, int position, long id) {
         ArrayList<Gang> gangs = user.getGangs();
         Gang gang = gangs.get(position);
-        String name = gang.getName();
-        Intent myIntent = new Intent(v.getContext(), GangActivity.class);
-        myIntent.putExtra("name", name);
-        startActivityForResult(myIntent, 0); 
+        gang.getName();
+         
            
 
     }

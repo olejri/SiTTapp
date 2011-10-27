@@ -8,8 +8,7 @@
         android:id="@+id/topborder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentLeft="true">
-        <Button android:text="Pluss" android:layout_width="wrap_content" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:clickable="true" android:onClick="addGang"></Button>
-        <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Gjenger" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
+        <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Gjenger" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:id="@+id/gangName"></TextView>
         <TextView android:layout_width="wrap_content" android:id="@+id/name" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_centerHorizontal="true"></TextView>
     </RelativeLayout>
     <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/RelativeLayout1" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_below="@+id/listview">
