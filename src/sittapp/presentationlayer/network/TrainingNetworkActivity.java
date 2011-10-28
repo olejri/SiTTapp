@@ -6,6 +6,7 @@ package sittapp.presentationlayer.network;
 import java.util.ArrayList;
 import sittapp.com.HttpCom;
 import sittapp.model.Gang;
+import sittapp.model.GangMember;
 import sittapp.model.User;
 import sittapp.presentationlayer.R;
 import sittapp.presentationlayer.front.QuickInfoActivity;
@@ -208,10 +209,18 @@ public class TrainingNetworkActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView lv, View v, int position, long id) {
         ArrayList<Gang> gangs = user.getGangs();
+       
         Gang gang = gangs.get(position);
-        String name = gang.getName();
+        ArrayList<GangMember> members = gang.getMembers();
+        ArrayList<String> sendMembers = new ArrayList<String>();
+        for(GangMember m : members) {
+           sendMembers.add(m.getName());
+           
+       }
+        String name = user.getName();
         Intent myIntent = new Intent(v.getContext(), GangActivity.class);
         myIntent.putExtra("name", name);
+        myIntent.putStringArrayListExtra("members", sendMembers);
         startActivityForResult(myIntent, 0); 
            
 

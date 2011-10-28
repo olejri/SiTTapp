@@ -46,6 +46,7 @@ public class GangActivity extends ListActivity {
     TextView gangName;
     StringAdapter sA;
     private Context mContext = GangActivity.this;
+    ArrayList<String> members;
 
 
 
@@ -58,22 +59,23 @@ public class GangActivity extends ListActivity {
         //login();
         String con = getIntent().getStringExtra("name");
         name.setText(con);
-
+        members = getIntent().getStringArrayListExtra("members");
+        makeList();
 
     }
     public void makeList() {
         ListView lv = (ListView)findViewById(android.R.id.list);
-        ArrayList <Gang> gang = user.getGangs();
-        for (Gang g : gang) {
-            Log.i("NAVN!", "" +g.getName());
-        }
-        this.cA = new ContactAdapter(this, R.layout.list_contact, gang);
-        setListAdapter(this.cA);
+        this.sA = new StringAdapter(this, R.layout.list_contact, members);
+        setListAdapter(this.sA);
     }
 
     public void showGangInv(View v) {
         acceptInv();
 
+    }
+    
+    public void onLeave(View v) {
+        
     }
     
     public void addGang(View v) {
@@ -207,9 +209,7 @@ public class GangActivity extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView lv, View v, int position, long id) {
-        ArrayList<Gang> gangs = user.getGangs();
-        Gang gang = gangs.get(position);
-        gang.getName();
+        
          
            
 

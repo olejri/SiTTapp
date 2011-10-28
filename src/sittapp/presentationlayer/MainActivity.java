@@ -1,5 +1,7 @@
 package sittapp.presentationlayer;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +28,8 @@ import sittapp.model.*;
 
 public class MainActivity extends Activity {
 	HttpCom com = new HttpCom();
+	
+	
 
     /** Called when the activity is first created. */
     @Override
@@ -35,6 +39,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
+        
 
         gallery.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {

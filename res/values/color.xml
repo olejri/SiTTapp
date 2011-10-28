@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <color name="maintext">#999933</color>
-    <color name="blue">#000099</color>
+    <color name="black">#000000</color>
     <color name="background_menu">#C2D6DD</color>
     <color name="icon_color">#636363</color>
     <color name="white">#ffffff</color>

@@ -18,7 +18,7 @@ public class QuickInfoActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ilayout);
+        setContentView(R.layout.qlayout);
         TextView text = (TextView) findViewById(R.id.testview);
         
         int contents = getIntent().getIntExtra("pos", 0);

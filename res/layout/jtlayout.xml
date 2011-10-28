@@ -4,4 +4,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/tbalayout">
+    <RelativeLayout
+        android:id="@+id/listViewWrapper"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" android:layout_width="260dip" android:layout_marginLeft="30dip" android:layout_marginTop="50dip">
+        <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/android:list" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"></ListView>
+    </RelativeLayout>
+    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_centerVertical="true" android:layout_alignParentLeft="true" android:text="P" android:id="@+id/previousDay" android:onClick="previousDay" android:clickable="true"></Button>
+    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:id="@+id/dayView"></TextView>
+    <Button android:layout_height="wrap_content" android:id="@+id/nextDay" android:layout_width="wrap_content" android:text="N" android:layout_alignBaseline="@+id/previousDay" android:layout_alignBottom="@+id/previousDay" android:layout_alignParentRight="true" android:clickable="true" android:onClick="nextDay"></Button>
+    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/dayView" android:layout_centerHorizontal="true" android:id="@+id/dateView"></TextView>
 </RelativeLayout>

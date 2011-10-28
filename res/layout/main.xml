@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/peoplewrap"
             android:layout_alignParentRight="true" android:clickable="true" android:onClick="toInfo">
-            <TextView android:id="@+id/open" style="@style/regText" android:layout_width="wrap_content" android:text="Mandag" android:layout_height="wrap_content" ></TextView>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/time" android:layout_below="@+id/open" android:text="17:45"></TextView>
+            <TextView android:id="@+id/open" style="@style/regText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fredag" android:textColor="@color/black"></TextView>
+            <DigitalClock android:textColor="@color/black" android:id="@+id/digitalClock1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="DigitalClock" android:layout_below="@+id/open"></DigitalClock>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/peoplepicwrap"
