@@ -101,7 +101,21 @@ public class HttpCom {
         qparams.add(new BasicNameValuePair("gangid", ""+gangId));
         qparams.add(new BasicNameValuePair("username", ""+username));
         JSONObject json = RestJsonClient.connect("/gangdecline", qparams);
-        return checkIfOk(json, "gangAccept");
+        return checkIfOk(json, "gangDecline");
+	}
+	
+	/**
+	 * 
+	 * @param gangId Id of gang user are leaving.
+	 * @param username User's username.
+	 * @return (Bool) If action was successful.
+	 */
+	public boolean gangLeave(Long gangId, String username) {
+        List<NameValuePair> qparams = new ArrayList<NameValuePair>();
+        qparams.add(new BasicNameValuePair("gangid", ""+gangId));
+        qparams.add(new BasicNameValuePair("username", ""+username));
+        JSONObject json = RestJsonClient.connect("/gangleave", qparams);
+        return checkIfOk(json, "gangLeave");
 	}
 	
 	// ******** PRIVATE INTERNAL METHODS ********
