@@ -27,29 +27,29 @@ import sittapp.presentationlayer.plan.TrainingBookActivity;
 import sittapp.model.*;
 
 public class MainActivity extends Activity {
-	HttpCom com = new HttpCom();
-	
-	
+    HttpCom com = new HttpCom();
+
+
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	comExamples();
+        comExamples();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
-        
+
 
         gallery.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent myIntent = new Intent(v.getContext(), QuickInfoActivity.class);
                 myIntent.putExtra("pos", position);
                 startActivityForResult(myIntent, 0); 
-              }
+            }
         });
     }
-    
+
     public void comExamples() {
         User user = com.login("Andriod");
         //Gang newGang = com.gangCreate("Andriod", "Bottlebois");
@@ -58,13 +58,13 @@ public class MainActivity extends Activity {
         //boolean accepted = com.gangAccept(newGang.getId(), "Nelich");
         //boolean declined = com.gangDecline(newGang.getId(), "Nelich");
     }
-    
-    
-   /**
-    * Navigate to TrainingBookActivty
- * @param v
- */
-//onClick methods
+
+
+    /**
+     * Navigate to TrainingBookActivty
+     * @param v
+     */
+    //onClick methods
     public void toTrainingBook(View v) {
         Intent myIntent = new Intent(v.getContext(), TrainingBookActivity.class);
         startActivityForResult(myIntent, 0);        
@@ -79,18 +79,18 @@ public class MainActivity extends Activity {
         Intent myIntent = new Intent(v.getContext(), TrainingNetworkActivity.class);
         startActivityForResult(myIntent, 0);        
     }
-    
+
     public void toLog(View v) {
         Intent myIntent = new Intent(v.getContext(), LogActivity.class);
         startActivityForResult(myIntent, 0);        
     }
-    
+
     public void toInfo(View v) {
         Intent myIntent = new Intent(v.getContext(), InfoActivity.class);
         startActivityForResult(myIntent, 0);        
     }
-    
-   //testing Gallery widget
+
+    //testing Gallery widget
     public class ImageAdapter extends BaseAdapter {
         int mGalleryItemBackground;
         private Context mContext;
@@ -105,8 +105,7 @@ public class MainActivity extends Activity {
         public ImageAdapter(Context c) {
             mContext = c;
             TypedArray attr = mContext.obtainStyledAttributes(R.styleable.HelloGallery);
-            mGalleryItemBackground = attr.getResourceId(
-                    R.styleable.HelloGallery_android_galleryItemBackground, 0);
+            mGalleryItemBackground = attr.getResourceId(R.styleable.HelloGallery_android_galleryItemBackground, 0);
             attr.recycle();
         }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1" android:id="@+id/tbalayout">
+    <RelativeLayout
+        android:id="@+id/topborder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentLeft="true">
+        <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Gjenger" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:id="@+id/gangName"></TextView>
+        <TextView android:layout_width="wrap_content" android:id="@+id/name" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_centerHorizontal="true"></TextView>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/listview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/topborder" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true">
+        <ListView android:id="@+id/android:list" android:layout_width="fill_parent" android:layout_height="268dp" android:layout_alignParentBottom="true" android:layout_alignParentTop="true"></ListView>
+    </RelativeLayout>
+</RelativeLayout>

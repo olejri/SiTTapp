@@ -24,6 +24,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +51,7 @@ public class TrainingNetworkActivity extends ListActivity {
     TextView gangName;
     StringAdapter sA;
     private Context mContext = TrainingNetworkActivity.this;
+ 
 
 
 
@@ -76,7 +79,7 @@ public class TrainingNetworkActivity extends ListActivity {
         acceptInv();
 
     }
-    
+
     public void addGang(View v) {
         final Dialog dialog = new Dialog(this.mContext);
         dialog.setTitle("Lag gjeng");
@@ -89,30 +92,38 @@ public class TrainingNetworkActivity extends ListActivity {
         this.sA = new StringAdapter(this, R.layout.list_contact, invs);
         ListView list = (ListView)dialog.findViewById(R.id.listView1);
         list.setAdapter(this.sA);
+        list.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                invs.remove(arg2);
+                TrainingNetworkActivity.this.sA.notifyDataSetChanged();
+
+            }
+
+        });
         add.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 String m = "" + gangM.getText();
                 invs.add(m);
-               gangM.setText("");
-               TrainingNetworkActivity.this.sA.notifyDataSetChanged();
+                gangM.setText("");
+                TrainingNetworkActivity.this.sA.notifyDataSetChanged();
             }
         });
-        
+
         inv.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-               String n = "" + name.getText();
-               Gang gang = com.gangCreate(user.getName(), n);
-               
-               for (String s : invs) {
-                com.gangInvite(gang.getId(), s);
-                   
+                String n = "" + name.getText();
+                Gang gang = com.gangCreate(user.getName(), n);
+
+                for (String s : invs) {
+                    com.gangInvite(gang.getId(), s);
+
+                }
+                dialog.cancel();
+                TrainingNetworkActivity.this.cA.notifyDataSetChanged();
             }
-               dialog.cancel();
-               TrainingNetworkActivity.this.cA.notifyDataSetChanged();
-            }
-            
+
         });
-        
+
         dialog.show();
     }
 
@@ -120,13 +131,13 @@ public class TrainingNetworkActivity extends ListActivity {
     public void acceptInv() {
         final ArrayList<Gang> gangInv = user.getGangInvites();
         int size = gangInv.size();
-        final ArrayList<Gang> gangAcc = new ArrayList<Gang>();
-        final ArrayList<Gang> gangDec = user.getGangInvites();
+
+
         boolean checked[] = new boolean[size];
         String names[] = new String[size];
         for (int i = 0; i < size; i++) {
             names[i] = gangInv.get(i).getName();
-            checked[i] = false;
+            checked[i] = true;
         }
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Bli med i gjengen");  
@@ -134,25 +145,25 @@ public class TrainingNetworkActivity extends ListActivity {
                 new DialogInterface.OnMultiChoiceClickListener() {
             public void onClick(DialogInterface dialog, int whichButton, boolean isChecked) {
                 if (isChecked) {
-                    gangAcc.add(gangInv.get(whichButton));
-                    gangDec.remove(gangInv.get(whichButton));
+                    gangInv.get(whichButton).setInv(true);
                 }
                 else{
-                    gangAcc.remove(gangInv.get(whichButton));
-                    gangDec.add(gangInv.get(whichButton));
+                    gangInv.get(whichButton).setInv(false);
                 }
                 /* User clicked on a check box do some stuff */
             }
         });
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                for (Gang g : gangAcc) {
-                    com.gangAccept(g.getId(), user.getName());
+                for (Gang g : gangInv) {
+                    if (g.getInv()) {
+                        com.gangAccept(g.getId(), user.getName());
+                    }
+                    else {
+                        com.gangDecline(g.getId(), user.getName());
+                    }
                 }
-                for (Gang g : gangDec) {
-                    com.gangDecline(g.getId(), user.getName());
-                }
-            }
+            }    
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -209,20 +220,25 @@ public class TrainingNetworkActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView lv, View v, int position, long id) {
         ArrayList<Gang> gangs = user.getGangs();
-       
+
         Gang gang = gangs.get(position);
         ArrayList<GangMember> members = gang.getMembers();
         ArrayList<String> sendMembers = new ArrayList<String>();
         for(GangMember m : members) {
-           sendMembers.add(m.getName());
-           
-       }
+            sendMembers.add(m.getName());
+
+        }
         String name = user.getName();
+        String gName = gang.getName();
+        long gangId= gang.getId();
         Intent myIntent = new Intent(v.getContext(), GangActivity.class);
         myIntent.putExtra("name", name);
+        myIntent.putExtra("gName", gName);
+        myIntent.putExtra("id", gangId);
         myIntent.putStringArrayListExtra("members", sendMembers);
-        startActivityForResult(myIntent, 0); 
-           
+        startActivityForResult(myIntent, 0);
+        
+
 
     }
 
@@ -262,7 +278,7 @@ public class TrainingNetworkActivity extends ListActivity {
         }
 
     }
-    
+
     private class StringAdapter extends ArrayAdapter<String> {
         private ArrayList<String> items;
         int teller = 0;

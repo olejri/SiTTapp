@@ -15,7 +15,6 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -39,7 +38,7 @@ import android.content.SharedPreferences.Editor;
  * @author Nelich
  *
  */
-public class GangActivity extends ListActivity {
+public class GangMemberActivity extends ListActivity {
     ContactAdapter cA;
     HttpCom com = new HttpCom();
     User user;
@@ -47,8 +46,8 @@ public class GangActivity extends ListActivity {
     Button invite;
     TextView gangName;
     StringAdapter sA;
-    private Context mContext = GangActivity.this;
-    ArrayList<String> members;
+    private Context mContext = GangMemberActivity.this;
+    ArrayList<String> members = new ArrayList<String>();
     long gandId;
     String iName ;
 
@@ -57,76 +56,22 @@ public class GangActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.glayout);
+        setContentView(R.layout.gmlayout);
         name = (TextView)findViewById(R.id.gangName);
         invite = (Button)findViewById(R.id.invite);
         //login();
-        iName = getIntent().getStringExtra("name");
-        name.setText(getIntent().getStringExtra("gName"));
-        gandId = getIntent().getLongExtra("id", 0L);
-        members = getIntent().getStringArrayListExtra("members");
+        name.setText(getIntent().getStringExtra("name"));
         makeList();
 
     }
     public void makeList() {
         ListView lv = (ListView)findViewById(android.R.id.list);
+        members.add("Ingen plan");        
         this.sA = new StringAdapter(this, R.layout.list_contact, members);
         setListAdapter(this.sA);
     }
-
-
-    public void onLeave(View v) {
-        AlertDialog.Builder alt_bld = new AlertDialog.Builder(mContext);
-        alt_bld.setMessage("Forlate gruppen?")
-        .setCancelable(false)
-        .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                com.gangLeave(gandId, iName);
-                finish();
-            }
-        })
-        .setNegativeButton("Nei", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-        alt_bld.show();
-    }
-
-    public void onInvGang(View v) {
-        AlertDialog.Builder alt_bld = new AlertDialog.Builder(mContext);
-        final EditText input = new EditText(this);
-        alt_bld.setMessage("Inviter en venn?")
-        .setView(input)
-        .setCancelable(false)
-        .setPositiveButton("Inviter", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                String name = "" + input.getText();
-                boolean join = com.gangInvite(gandId, name);
-                if (join) {
-                    Toast.makeText(mContext, "Sendt invitasjon til " + name, Toast.LENGTH_SHORT).show();    
-                }
-                else Toast.makeText(mContext, "Finner ikke bruker ved navnet " + name, Toast.LENGTH_SHORT).show();
-            }
-        })
-        .setNegativeButton("Tilbake", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-        alt_bld.show();
-    }
-
-
-
     @Override
     protected void onListItemClick(ListView lv, View v, int position, long id) {
-        String name = members.get(position);
-        Intent myIntent = new Intent(v.getContext(), GangMemberActivity.class);
-        myIntent.putExtra("name", name);
-        startActivityForResult(myIntent, 0);
-
-
 
     }
 

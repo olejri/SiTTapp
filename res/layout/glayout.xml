@@ -13,7 +13,8 @@
     </RelativeLayout>
     <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/RelativeLayout1" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_below="@+id/listview">
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:visibility="invisible" android:id="@+id/invite" android:clickable="true" android:onClick="showGangInv"></Button>
-        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:id="@+id/buttonLeave" android:text="Forlat gruppen" android:clickable="true" android:onClick="onLeave"></Button>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/buttonLeave" android:layout_alignBottom="@+id/buttonLeave" android:layout_toLeftOf="@+id/buttonLeave" android:text="Inviter" android:id="@+id/buttonInvite" android:clickable="true" android:onClick="onInvGang"></Button>
+        <Button android:layout_width="wrap_content" android:clickable="true" android:text="Forlat gruppen" android:id="@+id/buttonLeave" android:layout_height="wrap_content" android:onClick="onLeave" android:layout_centerVertical="true" android:layout_alignLeft="@+id/invite"></Button>
     </RelativeLayout>
     <RelativeLayout android:id="@+id/listview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/topborder" android:layout_alignParentLeft="true">
         <ListView android:id="@+id/android:list" android:layout_width="fill_parent" android:layout_height="268dp"></ListView>
