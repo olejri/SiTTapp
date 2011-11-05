@@ -13,5 +13,5 @@
     android:cacheColorHint="#00000000"
     />
     </RelativeLayout>
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:background="@drawable/ic_menu_add" android:id="@+id/plus" android:onClick="toInput" android:clickable="true"></Button>
+    <ImageButton android:layout_width="wrap_content" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:id="@+id/newWorkoutButton" android:onClick="addWorkoutClick"></ImageButton>
 </RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1" android:id="@+id/toplayout">
+    <TextView android:id="@+id/textView1" android:text="Legg til trening" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
+    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/workoutAddButton" android:text="Lagre" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:onClick="addWorkoutClick"></Button>
+    <Button android:layout_height="wrap_content" android:id="@+id/workoutTypeButton" android:text="Aktivitet" android:layout_below="@+id/workoutAddButton" android:layout_alignLeft="@+id/workoutAlertButton" android:layout_marginTop="38dp" android:onClick="workoutTypeClick" android:layout_width="100dp"></Button>
+    <Button android:layout_height="wrap_content" android:layout_width="100dp" android:id="@+id/workoutRepeatButton" android:text="Gjenta" android:onClick="workoutRepeatClick" android:layout_below="@+id/workoutTypeButton" android:layout_alignLeft="@+id/workoutAlertButton" android:layout_marginTop="26dp"></Button>
+    <Button android:layout_height="wrap_content" android:layout_width="100dp" android:id="@+id/workoutAlertButton" android:text="Varsel" android:onClick="workoutAlertClick" android:layout_below="@+id/workoutRepeatButton" android:layout_centerHorizontal="true" android:layout_marginTop="26dp"></Button>
+</RelativeLayout>

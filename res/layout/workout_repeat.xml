@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1" android:id="@+id/toplayout">
+    <TextView android:id="@+id/textView1" android:text="Gjenta" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
+    <LinearLayout android:orientation="vertical" android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_marginTop="24dp" android:weightSum="1" android:layout_width="wrap_content">
+        <CheckBox android:layout_width="wrap_content" android:text="Hver Mandag" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox1" android:hapticFeedbackEnabled="true"></CheckBox>
+        <CheckBox android:layout_width="wrap_content" android:text="Hver Tirsdag" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox2"></CheckBox>
+        <CheckBox android:layout_width="wrap_content" android:text="Hver Onsdag" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox3"></CheckBox>
+        <CheckBox android:layout_width="wrap_content" android:text="Hver Torsdag" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox4"></CheckBox>
+        <CheckBox android:layout_width="wrap_content" android:text="Hver Fredag" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox5"></CheckBox>
+        <CheckBox android:id="@+id/repeatCheckbox6" android:layout_width="wrap_content" android:text="Hver Lørdag" android:layout_height="wrap_content"></CheckBox>
+        <CheckBox android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Hver Søndag" android:id="@+id/repeatCheckbox7"></CheckBox>
+    </LinearLayout>
+    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Ok" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:id="@+id/repeatOkButton" android:onClick="okClick"></Button>
+</RelativeLayout>

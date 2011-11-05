@@ -19,12 +19,14 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,81 +37,55 @@ import android.widget.Toast;
  *
  */
 public class CustomPlanActivity extends ListActivity {
-    ContactAdapter cA;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.cplayout);
+		generateWorkouts();
+	}
+	
+    //onClick methods
+    public void addWorkoutClick(View v) {
+        Intent myIntent = new Intent(v.getContext(), AddWorkoutActivity.class);
+        startActivity(myIntent);   
+    } 
     
-    
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.cplayout);
-        makeList();
-  }
- public void makeList() {
-        ListView lv = (ListView)findViewById(android.R.id.list);
-        ArrayList<String> listNames = new ArrayList<String>();
-        
-        for(int i=0;i < 10;i++) {
-            listNames.add("test");
-        }
-        this.cA = new ContactAdapter(this, R.layout.list_contact, listNames);
-        setListAdapter(this.cA);
+	public void generateWorkouts() {
+		ArrayList<String> repeatStrings = new ArrayList<String>();
+		for(int i=0;i < 10;i++) {
+			repeatStrings.add("Hver mandag");
+		}
+		CustomPlanAdapter adapter = new CustomPlanAdapter(this, repeatStrings);
+		setListAdapter(adapter);
+	}
+	
+	
+	
+	/* ListAdapter Widget for Custom Workout activity */
+	
+	private class CustomPlanAdapter extends ArrayAdapter<String> {
+		private final Activity context;
+		private final ArrayList<String> repeat;
 
-    }
- 
- 
- public void toInput(View v) {
-     final CharSequence[] items = {"Gruppetime", "Styrke", "Kondisjon"};
+		public CustomPlanAdapter(Activity context, ArrayList<String> repeat) {
+			super(context, R.layout.workout_rowlayout, repeat);
+			this.context = context;
+			this.repeat = repeat;
+		}
 
-     AlertDialog.Builder builder = new AlertDialog.Builder(this);
-     final AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
-     builder.setTitle("Velg type");
-     builder2.setTitle("Velg type");
-     builder.setItems(items, new DialogInterface.OnClickListener() {
-         public void onClick(DialogInterface dialog, int item) {
-             AlertDialog alert2 = builder2.create();
-             switch (item) {
-             case 0: alert2.show();
-             }
-             //Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
-         }
-     });
-     AlertDialog alert = builder.create();
-     
-     alert.show();
- }
-    
-    
-    private class ContactAdapter extends ArrayAdapter<String> {
-        private ArrayList<String> items;
-        /**
-         * 
-         * @param context
-         * @param textViewResourceId
-         * @param items
-         */
-        public ContactAdapter(Context context, int textViewResourceId, ArrayList<String> items) {
-            super(context, textViewResourceId, items);
-            this.items = items;
-        }
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View v = convertView;
-            if (v == null) {
-                LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                v = vi.inflate(R.layout.list_contact, null);
-            }
-            String s = items.get(position);
-            if (s != null) {
-                TextView tt = (TextView) v.findViewById(R.id.listcontact);
-                if (tt != null) {
-                    tt.setText(s);                
-                }
-
-            }
-            return v;
-
-        }
-
-    }
-
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			LayoutInflater inflater = context.getLayoutInflater();
+			View rowView = inflater.inflate(R.layout.workout_rowlayout, null, true);
+			View rowLabels = rowView.findViewById(R.id.workoutLabelsLayout);
+			ImageView iconView = (ImageView) rowView.findViewById(R.id.icon);
+			TextView repeatView = (TextView) rowLabels.findViewById(R.id.repeatLabel);
+			TextView clockView = (TextView) rowLabels.findViewById(R.id.clockLabel);
+			repeatView.setText(repeat.get(position));
+			clockView.setText("7:00");
+			iconView.setImageResource(R.drawable.icon);
+			return rowView;
+		}
+	}
 }

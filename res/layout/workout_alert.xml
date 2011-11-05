@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1" android:id="@+id/toplayout">
+    <TextView android:id="@+id/textView1" android:text="Varsel" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
+    <LinearLayout android:orientation="vertical" android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_centerHorizontal="true" android:layout_marginTop="72dp" android:layout_width="fill_parent">
+        <Button android:layout_width="fill_parent" android:text="5 min før" android:layout_height="wrap_content" android:id="@+id/alertSelectButton1" android:onClick="alertSelectClick"></Button>
+        <Button android:layout_width="fill_parent" android:text="15 min før" android:layout_height="wrap_content" android:id="@+id/alertSelectButton2" android:onClick="alertSelectClick"></Button>
+        <Button android:layout_width="fill_parent" android:text="30 min før" android:layout_height="wrap_content" android:id="@+id/alertSelectButton3" android:onClick="alertSelectClick"></Button>
+        <Button android:layout_width="fill_parent" android:text="1 time før" android:layout_height="wrap_content" android:id="@+id/alertSelectButton4" android:onClick="alertSelectClick"></Button>
+        <Button android:layout_width="fill_parent" android:text="2 timer før" android:layout_height="wrap_content" android:id="@+id/alertSelectButton5" android:onClick="alertSelectClick"></Button>
+        <Button android:layout_width="fill_parent" android:text="1 dag før" android:layout_height="wrap_content" android:id="@+id/alertSelectButton6" android:onClick="alertSelectClick"></Button>
+        <Button android:layout_width="fill_parent" android:text="2 dager før" android:layout_height="wrap_content" android:id="@+id/alertSelectButton7" android:onClick="alertSelectClick"></Button>
+    </LinearLayout>
+</RelativeLayout>
