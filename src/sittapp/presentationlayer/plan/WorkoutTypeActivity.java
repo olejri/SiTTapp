@@ -47,7 +47,6 @@ public class WorkoutTypeActivity extends Activity {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	builder.setTitle("Treningsinnhold");
     	builder.setMultiChoiceItems(items, list, new DialogInterface.OnMultiChoiceClickListener() {
-    		@Override
     		public void onClick(DialogInterface dialog, int which, boolean isChecked) {
     			// TODO Update a reference table what are selected
     		}

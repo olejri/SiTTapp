@@ -6,7 +6,7 @@
         android:id="@+id/gangnamewrapper"
         android:layout_width="fill_parent"
         android:background="@drawable/list_background" android:layout_height="60dip">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentRight="true" android:id="@+id/howMany" android:textColor="@color/black" android:textSize="28sp" android:layout_marginRight="10dip"></TextView>
         <TextView android:textSize="28sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/black" android:id="@+id/listcontact" android:text="GJENG" android:layout_centerVertical="true" android:layout_alignParentLeft="true"></TextView>
+        <ImageView android:layout_width="30dip" android:id="@+id/imageView1" android:src="@drawable/onsite" android:layout_height="30dip" android:layout_alignBottom="@+id/listcontact" android:layout_alignParentRight="true" android:layout_marginRight="10dip"></ImageView>
     </RelativeLayout>
 </LinearLayout>

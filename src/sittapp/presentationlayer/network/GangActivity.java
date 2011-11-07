@@ -70,7 +70,7 @@ public class GangActivity extends ListActivity {
     }
     public void makeList() {
         ListView lv = (ListView)findViewById(android.R.id.list);
-        this.sA = new StringAdapter(this, R.layout.list_contact, members);
+        this.sA = new StringAdapter(this, R.layout.list_contact_onsite, members);
         setListAdapter(this.sA);
     }
 
@@ -186,7 +186,7 @@ public class GangActivity extends ListActivity {
             View v = convertView;
             if (v == null) {
                 LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                v = vi.inflate(R.layout.list_contact, null);
+                v = vi.inflate(R.layout.list_contact_onsite, null);
             }        
 
             String  g = this.items.get(position);
