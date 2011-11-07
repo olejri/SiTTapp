@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:weightSum="1.0" >
+    <LinearLayout android:id="@+id/leftIconLayout" android:layout_weight=".25" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content" android:id="@+id/rightIconLayout" android:layout_weight=".75" android:orientation="horizontal" android:layout_width="fill_parent">
+        <ImageView android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/likeIcon"></ImageView>
+        <TextView android:layout_gravity="center_vertical|center_horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="1" android:id="@+id/likeCountLabel"></TextView>
+    </LinearLayout>
+</LinearLayout>

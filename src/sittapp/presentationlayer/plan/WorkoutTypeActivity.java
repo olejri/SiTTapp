@@ -1,5 +1,6 @@
 /**
- * 
+ * @author André S. Hansen
+ *
  */
 package sittapp.presentationlayer.plan;
 
@@ -7,15 +8,10 @@ import sittapp.presentationlayer.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-/**
- * @author André S. Hansen
- *
- */
 public class WorkoutTypeActivity extends Activity {
 	final static private String TAG = "WorkoutTYPE";
 	

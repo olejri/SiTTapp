@@ -1,5 +1,6 @@
 /**
- * 
+ * @author André S. Hansen
+ *
  */
 package sittapp.presentationlayer.plan;
 
@@ -8,10 +9,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-/**
- * @author André S. Hansen
- *
- */
 public class WorkoutRepeatActivity extends Activity {
 	
 	@Override

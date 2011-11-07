@@ -3,9 +3,9 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@+id/cplayout">
+    android:weightSum="1" android:id="@+id/toplayout">
     <TextView android:id="@+id/textView1" android:text="Egendefinert plan" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
-    <RelativeLayout android:id="@+id/svlayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_alignParentLeft="true" android:layout_marginTop="95dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+    <RelativeLayout android:id="@+id/svlayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_below="@+id/newWorkoutButton">
         	<ListView
     android:id="@+id/android:list"
     android:layout_width="fill_parent"

@@ -1,47 +1,29 @@
 /**
- * 
+ * @author André S. Hansen
+ *
  */
 package sittapp.presentationlayer.plan;
 
 
 import java.util.ArrayList;
-
 import sittapp.presentationlayer.R;
-import sittapp.presentationlayer.R.id;
-import sittapp.presentationlayer.R.layout;
-
-
-
-
-
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-/**
- * @author Nelich
- *
- */
 public class CustomPlanActivity extends ListActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.cplayout);
+		setContentView(R.layout.workout_custom_main);
 		generateWorkouts();
 	}
 	

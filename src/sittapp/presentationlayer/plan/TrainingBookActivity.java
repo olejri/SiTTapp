@@ -5,8 +5,6 @@ package sittapp.presentationlayer.plan;
 
 
 import sittapp.presentationlayer.R;
-import sittapp.presentationlayer.R.layout;
-import sittapp.presentationlayer.log.LogActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,19 +1,15 @@
 /**
- * 
+ * @author André S. Hansen
+ *
  */
 package sittapp.presentationlayer.plan;
 
 import sittapp.presentationlayer.R;
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * @author André S. Hansen
- *
- */
 public class WorkoutAlertActivity extends Activity {
 	
 	@Override
