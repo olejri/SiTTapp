@@ -122,35 +122,36 @@ public class HttpCom {
 	// ******************************************
 	
 	private Gang JSONtoGang(JSONObject json) {
-		Gang gang = null;
 		try {
-			gang = new Gang(json.getLong("id"), json.getString("name"));
+			Gang gang = new Gang(json.getLong("id"), json.getString("name"));
 			JSONArray jsonGangUsers = json.getJSONArray("users");
 			for (int y = 0; y<jsonGangUsers.length(); y++) {
 				String name = (String) jsonGangUsers.get(y);
 				gang.addMember(new GangMember(name));
 			}
+			return gang;
 		} catch (JSONException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return gang;
 	}
 	
 	private boolean checkIfOk(JSONObject json, String msgTag) {
         String msg = null;
 		try {
 			msg = json.getString("MSG");
+	        if (msg.equals("OK")) {
+	        	Log.d(LOG_TAG, msgTag+" - success");
+	        	return true;
+	        }
+	        else {
+	        	Log.d(LOG_TAG, msgTag+" - failure");
+	        	return false;
+	        }
 		} catch (JSONException e) {
 			e.printStackTrace();
+			return false;
 		}
-        if (msg.equals("OK")) {
-        	Log.d(LOG_TAG, msgTag+" - success");
-        	return true;
-        }
-        else {
-        	Log.d(LOG_TAG, msgTag+" - failure");
-        	return false;
-        }
 	}
 	
 	/// BACKUP SHIZZLE

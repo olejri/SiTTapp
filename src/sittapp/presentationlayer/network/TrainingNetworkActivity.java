@@ -221,6 +221,9 @@ public class TrainingNetworkActivity extends ListActivity {
                 String value = "" + input.getText();
                 username = value;
                 user = TrainingNetworkActivity.this.com.login(value);
+                if (user==null) {
+                	//TODO: Tell user login failed
+                }
                 // name.setText(user.getName());
                 makeList();
                 checkForInv();
