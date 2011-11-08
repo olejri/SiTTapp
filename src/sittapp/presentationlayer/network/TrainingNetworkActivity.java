@@ -74,8 +74,10 @@ public class TrainingNetworkActivity extends ListActivity {
         invite = (Button)findViewById(R.id.invite);
 
         invs = new ArrayList<Contacts>();
-        invs.add(new Contacts ("Ole Jorgen Rishoff", false));
-        invs.add(new Contacts ("Andre S. Hansen", false));
+        invs.add(new Contacts ("Andre", false));
+        invs.add(new Contacts ("Ole", false));
+        invs.add(new Contacts ("Linn", false));
+        invs.add(new Contacts ("Anne", false));
         invs.add(new Contacts ("Linn Johansson", false));
         invs.add(new Contacts ("Anne Karen Aanonli", false));
         invs.add(new Contacts ("Lars Hagen", false));
@@ -95,17 +97,17 @@ public class TrainingNetworkActivity extends ListActivity {
         this.cA = new ContactAdapter(this, R.layout.list_contact, gang);
         setListAdapter(this.cA);
     }
-    
+
     @Override
     public void onResume() {
         super.onResume();
         if (username != null) {
             user = TrainingNetworkActivity.this.com.login(username);
             makeList();
-            
+
         }
     }
-    
+
     public void showGangInv(View v) {
         acceptInv();
 
@@ -117,43 +119,29 @@ public class TrainingNetworkActivity extends ListActivity {
         dialog.setContentView(R.layout.pmlayout);
         final EditText name = (EditText)dialog.findViewById(R.id.editText1);
         name.setHint("Gjeng navn");
-
-
         Button inv = (Button)dialog.findViewById(R.id.button1);
         this.sA = new ConAdapter(this, R.layout.list_contact_check, invs);
         ListView list = (ListView)dialog.findViewById(R.id.listView1);
         list.setAdapter(this.sA);
-
-
-
-
-        //        add.setOnClickListener(new OnClickListener() {
-        //            public void onClick(View v) {
-        //                String m = "" + gangM.getText();
-        //                invs.add(m);
-        //                gangM.setText("");
-        //                TrainingNetworkActivity.this.sA.notifyDataSetChanged();
-        //            }
-        //        });
-
         inv.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 String n = "" + name.getText();
                 Gang gang = com.gangCreate(user.getName(), n);
+                String inv = "";
 
                 for (Contacts s : invs) {
                     Log.i("Prøver", "name" + n);
                     Log.i("Her", s.getName() + s.getAdd());
                     if (s.getAdd()) {
-                        com.gangInvite(gang.getId(), s.getName());
+                        if (com.gangInvite(gang.getId(), s.getName())); inv = inv + " " +s.getName(); 
                     }
                 }
                 if (username != null) {
                     user = TrainingNetworkActivity.this.com.login(username);
                     makeList();
-                                   }
+                }
                 dialog.cancel();
-                
+                Toast.makeText(mContext, "Sendt invitasjon til: inv", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -197,6 +185,12 @@ public class TrainingNetworkActivity extends ListActivity {
                         com.gangDecline(g.getId(), user.getName());
                     }
                 }
+                invite.setVisibility(View.INVISIBLE);
+                if (username != null) {
+                    user = TrainingNetworkActivity.this.com.login(username);
+                    makeList();
+                }
+
             }    
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -222,12 +216,16 @@ public class TrainingNetworkActivity extends ListActivity {
                 username = value;
                 user = TrainingNetworkActivity.this.com.login(value);
                 if (user==null) {
-                	//TODO: Tell user login failed
+                    Toast.makeText(mContext, "Kunne ikke logge inn, skjekk om du har internett forbindelse", Toast.LENGTH_SHORT).show();   
+                    finish();
                 }
                 // name.setText(user.getName());
-                makeList();
-                checkForInv();
-                setId(user.getName());
+                else {
+                    makeList();
+                    checkForInv();
+                    setId(user.getName()); 
+                }
+
             }
         });
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -370,13 +368,10 @@ public class TrainingNetworkActivity extends ListActivity {
          * @param items
          * @return 
          */
-
         public ConAdapter(Context context, int textViewResourceId, ArrayList<Contacts> items) {
             super(context, textViewResourceId, items);
             this.items = items;
-
         }
-
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             View v = convertView;
@@ -384,44 +379,28 @@ public class TrainingNetworkActivity extends ListActivity {
                 LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 v = vi.inflate(R.layout.list_contact_check, null);
             }        
-
             Contacts  g = this.items.get(position);
             if (g != null) {
                 TextView gangName = (TextView) v.findViewById(R.id.listcontact_check);
                 if (gangName != null) {
                     gangName.setText(g.getName()); 
                 }
-
             }
             if (g != null) {
                 final CheckBox checked = (CheckBox)v.findViewById(R.id.invcheck);
-                if (checked != null) {
-                    checked.setChecked(false);
-                }
                 checked.setOnClickListener(new OnClickListener() {
                     public void onClick(View v) {
-                        boolean ch = checked.isChecked();
-                        // TODO Auto-generated method stub
-                        if (!ch) {
-                            Log.i("adder", "her" + invs.get(position).getName());
-                            invs.get(position).setAdd(true);       
-                        }
-                        else {
+                        Log.i("adder", "TEST");
+                        if (!checked.isChecked()) {
                             invs.get(position).setAdd(false);   
                         }
-
-
+                        else {
+                            invs.get(position).setAdd(true);
+                        }
                     }
-
                 });
-
-
             }
-
             return v;
-
         }
-
     }
-
 }
