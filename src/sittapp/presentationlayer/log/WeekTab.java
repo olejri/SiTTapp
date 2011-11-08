@@ -20,7 +20,7 @@ super.onCreate(savedInstanceState);
 /* First Tab Content */
 TextView textView = new TextView(this);
 textView.setText("Logg for uke");
-setContentView(textView);
+//setContentView(textView);
 
 }
 }

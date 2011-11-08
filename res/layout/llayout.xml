@@ -3,19 +3,27 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@+id/tbalayout">
-    <TabHost android:id="@android:id/tabhost" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
+    android:weightSum="1" android:id="@+id/tbalayout" android:background="@color/lgreen">
+    <TabHost android:id="@android:id/tabhost" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:tabStripEnabled="false">
         <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:weightSum="1">
-            <TabWidget android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@android:id/tabs"></TabWidget>
+            <TabWidget android:layout_width="fill_parent" android:id="@android:id/tabs" android:layout_height="60dip" android:background="@color/lgreen" android:tabStripEnabled="false"></TabWidget>
             <FrameLayout android:layout_width="fill_parent" android:id="@android:id/tabcontent" android:layout_height="318dp">
                 <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/day">
-                    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_marginTop="100dip" android:id="@+id/test1" android:layout_marginLeft="100dip" android:layout_height="wrap_content" android:text="TextView"></TextView>
+                    <RelativeLayout
+                        android:id="@+id/dayWrapper"
+                        android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="10dip" android:layout_marginLeft="10dip" android:layout_marginRight="10dip" android:layout_marginTop="10dip">
+                        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:id="@+id/dayImage"></ImageView>
+                    </RelativeLayout>
                 </LinearLayout>
                 <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/week">
-                    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" android:id="@+id/test2" android:layout_marginLeft="100dip" android:layout_marginTop="100dip"></TextView>
+                    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="match_parent" android:layout_marginBottom="10dip" android:layout_marginLeft="10dip" android:layout_marginRight="10dip" android:layout_marginTop="10dip" android:layout_width="match_parent">
+                        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/weekImage" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentTop="true"></ImageView>
+                    </RelativeLayout>
                 </LinearLayout>
                 <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/month">
-                    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" android:id="@+id/test3" android:layout_marginTop="100dip" android:layout_marginLeft="100dip"></TextView>
+                    <RelativeLayout android:id="@+id/relativeLayout2" android:layout_height="match_parent" android:layout_width="match_parent" android:layout_marginBottom="10dip" android:layout_marginLeft="10dip" android:layout_marginRight="10dip" android:layout_marginTop="10dip">
+                        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/monthImage" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentTop="true"></ImageView>
+                    </RelativeLayout>
                 </LinearLayout>
             </FrameLayout>
             <RelativeLayout android:id="@+id/botmenu" android:layout_width="fill_parent" android:layout_height="fill_parent">

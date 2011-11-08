@@ -20,7 +20,7 @@ public class MonthTab extends Activity {
     /* First Tab Content */
     TextView textView = new TextView(this);
     textView.setText("Logg for måned");
-    setContentView(textView);
+   // setContentView(textView);
     
     }
 }
