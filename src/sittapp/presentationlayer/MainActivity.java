@@ -30,7 +30,7 @@ import sittapp.model.*;
 
 public class MainActivity extends Activity {
     HttpCom com = new HttpCom();
-    TextView date;
+    
 
 
     /** Called when the activity is first created. */
@@ -41,20 +41,20 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
-        date = (TextView)findViewById(R.id.open);
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 2011);
-        cal.set(Calendar.DAY_OF_YEAR, 312);
-        int weekday = cal.get(Calendar.DAY_OF_WEEK);
-        switch (weekday) {
-        case 1 : date.setText("Søndag");break;
-        case 2: date.setText("Mandag");break;
-        case 3: date.setText("Tirsdag");break;
-        case 4: date.setText("Onsdag");break;
-        case 5: date.setText("Torsdag");break;
-        case 6: date.setText("Fredag");break;
-        case 7: date.setText("Lørdag");break;
-        }
+//        
+//        Calendar cal = Calendar.getInstance();
+//        cal.set(Calendar.YEAR, 2011);
+//        cal.set(Calendar.DAY_OF_YEAR, 312);
+//        int weekday = cal.get(Calendar.DAY_OF_WEEK);
+//        switch (weekday) {
+//        case 1 : date.setText("Søndag");break;
+//        case 2: date.setText("Mandag");break;
+//        case 3: date.setText("Tirsdag");break;
+//        case 4: date.setText("Onsdag");break;
+//        case 5: date.setText("Torsdag");break;
+//        case 6: date.setText("Fredag");break;
+//        case 7: date.setText("Lørdag");break;
+//        }
       
 
 
@@ -114,7 +114,7 @@ public class MainActivity extends Activity {
 
         private Integer[] mImageIds = {
                 R.drawable.hurtigtrening,
-                R.drawable.hurtigtrening_trykt_inn,
+                R.layout.list_contact,
                 R.drawable.pause,
                 R.layout.pmlayout
         };
@@ -144,7 +144,7 @@ public class MainActivity extends Activity {
             imageView.setImageResource(mImageIds[position]);
             imageView.setLayoutParams(new Gallery.LayoutParams(200, 200));
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            imageView.setBackgroundResource(mGalleryItemBackground);
+            imageView.setBackgroundResource(0);
 
             return imageView;
         }
