@@ -4,8 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/toplayout">
-    <TextView android:id="@+id/textView1" android:text="Egendefinert plan" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
-    <RelativeLayout android:id="@+id/svlayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_below="@+id/newWorkoutButton">
+    <RelativeLayout android:id="@+id/svlayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_below="@+id/header_layout">
         	<ListView
     android:id="@+id/android:list"
     android:layout_width="fill_parent"
@@ -13,5 +12,8 @@
     android:cacheColorHint="#00000000"
     />
     </RelativeLayout>
-    <ImageButton android:layout_width="wrap_content" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:id="@+id/newWorkoutButton" android:onClick="addWorkoutClick"></ImageButton>
+    <RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/bar_custom_repeat">
+        <ImageView android:onClick="addWorkoutClick" android:layout_width="wrap_content" android:adjustViewBounds="true" android:layout_height="wrap_content" android:id="@+id/newWorkoutButton" android:src="@drawable/lggtil_knapp" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_marginRight="10dp"></ImageView>
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Egendefinert plan" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toLeftOf="@+id/newWorkoutButton" android:layout_marginRight="36dp"></TextView>
+    </RelativeLayout>
 </RelativeLayout>

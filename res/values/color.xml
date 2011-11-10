@@ -10,5 +10,7 @@
     <color name="lyellow">#FFFFE5</color>
      <color name="lgreen">#8AB82E</color>
      <color name="green">#6B8F24</color>
+     <color name="planrow_namebar">#fbbe97</color>
+     <color name="planrow_main">#feddc7</color>
     
 </resources>

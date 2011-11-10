@@ -52,27 +52,37 @@ public class StandardizedPlanActivity extends ListActivity {
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			Log.d("PLANSsizeINSIDE", ""+plans.size());
+			// Load layouts/views
 			LayoutInflater inflater = context.getLayoutInflater();
 			View rowView = inflater.inflate(R.layout.plan_stand_rowlayout, null, true);
-			View leftIcons = rowView.findViewById(R.id.leftIconLayout);
-			View rightIcons = rowView.findViewById(R.id.rightIconLayout);
+			View topView = rowView.findViewById(R.id.planrow_top);
+			View leftView = rowView.findViewById(R.id.planrow_bot).findViewById(R.id.planrow_left);
+			View rightView = rowView.findViewById(R.id.planrow_bot).findViewById(R.id.planrow_right);
 			// Append Plan data
-			TextView likeCount = (TextView) rightIcons.findViewById(R.id.likeCountLabel);
-			likeCount.setText(""+plans.get(position).likes);
-			LinearLayout left = (LinearLayout) leftIcons;
+			Plan p = plans.get(position);
+			Log.d("CHILDCOUNT",""+((LinearLayout) rightView).getChildCount());
+			TextView likeCount = (TextView) rightView.findViewById(R.id.planrow_likeCount);
+			likeCount.setText(""+p.likes);
+			TextView name = (TextView) topView.findViewById(R.id.planrow_name);
+			Log.d("NAMESHIZ", p.name);
+			name.setText(p.name);
 			for (String tag : plans.get(position).tags) {
-				try { // TAG is a workout count
-					Integer.parseInt(tag);
-					TextView tv = new TextView(context);
-					tv.setText(tag);
-					left.addView(tv);
+				LinearLayout iconLayout;
+				ImageView image = new ImageView(context);
+				if (tag.equals("DUMB")) {
+					iconLayout = (LinearLayout) leftView.findViewById(R.id.planrow_bumbbell_layout);
+					image.setImageResource(R.drawable.icon_dumbbell);
 				}
-				catch (NumberFormatException e) { // TAG is a icon name
-					ImageView image = new ImageView(context);
-					image.setImageResource(R.drawable.icon);
-					left.addView(image);
+				else if (tag.equals("CARDIO")) {
+					iconLayout = (LinearLayout) leftView.findViewById(R.id.planrow_cardio_layout);
+					image.setImageResource(R.drawable.icon_cardio);
 				}
+				else {
+					iconLayout = (LinearLayout) leftView.findViewById(R.id.planrow_joint_layout);
+					image.setImageResource(R.drawable.ic_menu_cc);
+				}
+				image.setAdjustViewBounds(true);
+				iconLayout.addView(image);
 			}
 			return rowView;
 		}

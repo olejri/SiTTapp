@@ -2,11 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
-    android:weightSum="1.0" >
-    <LinearLayout android:id="@+id/leftIconLayout" android:layout_weight=".25" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    android:weightSum="1.0" android:background="@color/white" android:orientation="vertical">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/planrow_top" android:background="@color/planrow_namebar">
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Textviewewewe" android:id="@+id/planrow_name" android:layout_marginLeft="3dp"></TextView>
     </LinearLayout>
-    <LinearLayout android:layout_height="wrap_content" android:id="@+id/rightIconLayout" android:layout_weight=".75" android:orientation="horizontal" android:layout_width="fill_parent">
-        <ImageView android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/likeIcon"></ImageView>
-        <TextView android:layout_gravity="center_vertical|center_horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="1" android:id="@+id/likeCountLabel"></TextView>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:layout_height="1dp" android:background="@color/lgrey"></LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:id="@+id/planrow_bot" android:background="@color/planrow_main" android:layout_height="66dp">
+	    <RelativeLayout android:layout_height="match_parent" android:layout_width="249dp" android:id="@+id/planrow_left">
+	        <LinearLayout android:id="@+id/planrow_cardio_layout" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_width="match_parent" android:layout_height="20dp" android:layout_marginTop="3dp">
+	            <TextView android:layout_height="wrap_content" android:id="@+id/textView1" android:text="Kondisjon" android:layout_width="90dp" android:layout_marginLeft="10dp" android:textColor="@color/black"></TextView>
+	        </LinearLayout>
+	        <LinearLayout android:id="@+id/planrow_joint_layout" android:layout_below="@+id/planrow_bumbbell_layout" android:layout_alignParentLeft="true" android:layout_width="match_parent" android:layout_height="20dp" android:layout_marginBottom="3dp">
+	            <TextView android:layout_height="wrap_content" android:id="@+id/TextView01" android:text="Gruppetimer" android:layout_width="90dp" android:layout_marginLeft="10dp" android:textColor="@color/black"></TextView>
+	        </LinearLayout>
+	        <LinearLayout android:id="@+id/planrow_bumbbell_layout" android:layout_below="@+id/planrow_cardio_layout" android:layout_alignParentLeft="true" android:layout_width="match_parent" android:layout_height="20dp">
+	            <TextView android:layout_height="wrap_content" android:id="@+id/textView2" android:text="Styrke" android:layout_width="90dp" android:layout_marginLeft="10dp" android:textColor="@color/black"></TextView>
+	        </LinearLayout>
+	    </RelativeLayout>
+	    <LinearLayout android:layout_height="75dp" android:orientation="horizontal" android:layout_width="match_parent" android:id="@+id/planrow_right">
+	        <ImageView android:layout_height="wrap_content" android:src="@drawable/icon_likes" android:layout_width="40dp" android:id="@+id/planrow_likeIcon"></ImageView>
+	        <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="1" android:layout_gravity="center_vertical|center_horizontal" android:textColor="@color/black" android:id="@+id/planrow_likeCount"></TextView>
+	    </LinearLayout>
     </LinearLayout>
 </LinearLayout>
