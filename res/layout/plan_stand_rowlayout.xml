@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:weightSum="1.0" android:background="@color/white" android:orientation="vertical">
     <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/planrow_top" android:background="@color/planrow_namebar">
-        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Textviewewewe" android:id="@+id/planrow_name" android:layout_marginLeft="3dp"></TextView>
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Textviewewewe" android:id="@+id/planrow_name" android:layout_marginLeft="3dp" android:textColor="@color/white"></TextView>
     </LinearLayout>
     <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:layout_height="1dp" android:background="@color/lgrey"></LinearLayout>
     <LinearLayout android:layout_width="fill_parent" android:id="@+id/planrow_bot" android:background="@color/planrow_main" android:layout_height="66dp">
