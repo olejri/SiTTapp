@@ -79,7 +79,7 @@ public class StandardizedPlanActivity extends ListActivity {
 				}
 				else {
 					iconLayout = (LinearLayout) leftView.findViewById(R.id.planrow_joint_layout);
-					image.setImageResource(R.drawable.ic_menu_cc);
+					image.setImageResource(R.drawable.icon_joint);
 				}
 				image.setAdjustViewBounds(true);
 				iconLayout.addView(image);
