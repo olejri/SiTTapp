@@ -12,5 +12,5 @@
      <color name="green">#6B8F24</color>
      <color name="planrow_namebar">#fbbe97</color>
      <color name="planrow_main">#feddc7</color>
-    
+    <color name="opaque_back"> #69000000</color>
 </resources>
