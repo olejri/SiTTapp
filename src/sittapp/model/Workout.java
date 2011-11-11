@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Workout implements Serializable  {
 	private static final long serialVersionUID = 1L;
-	public CharSequence[] weightItems = {"Benk", "Skråbenk", "Triceps", "Biceps", "Arnold Curl", "Biceps Curl", "Øl Curl"};
+	public CharSequence[] weightItems = {"Benk", "SkrÃ¥benk", "Triceps", "Biceps", "Arnold Curl", "Biceps Curl", "Ã˜l Curl"};
 	public boolean[] weightSelected = makeFalseList(weightItems);
-	public CharSequence[] cardioItems = {"Sykkel", "Tredemølle", "Løpeskistavsak"};
+	public CharSequence[] cardioItems = {"Sykkel", "TredemÃ¸lle", "LÃ¸peskistavsak"};
 	public boolean[] cardioSelected = makeFalseList(cardioItems);
 	
 	// VARIABLES
@@ -19,17 +19,17 @@ public class Workout implements Serializable  {
 		excercices.clear();
 		if (type.equals("WEIGHT")) {
 			excercices.add(new Item("Benk"));
-			excercices.add(new Item("Skråbenk"));
+			excercices.add(new Item("Skrï¿½benk"));
 			excercices.add(new Item("Triceps"));
 			excercices.add(new Item("Biceps"));
 			excercices.add(new Item("Arnold Curl"));
 			excercices.add(new Item("Biceps Curl"));
-			excercices.add(new Item("Øl Curl"));
+			excercices.add(new Item("ï¿½l Curl"));
 		}
 		else {
 			excercices.add(new Item("Sykkel"));
-			excercices.add(new Item("Tredemølle"));
-			excercices.add(new Item("Løpeskistavsak"));
+			excercices.add(new Item("Tredemï¿½lle"));
+			excercices.add(new Item("Lï¿½peskistavsak"));
 			
 		}
 	}*/

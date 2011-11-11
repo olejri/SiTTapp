@@ -1,5 +1,5 @@
 /**
- * @author André S. Hansen
+ * @author Andrï¿½ S. Hansen
  *
  */
 package sittapp.presentationlayer.plan;
@@ -9,6 +9,7 @@ import sittapp.presentationlayer.R;
 import sittapp.model.*;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,19 +18,29 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StandardizedPlanActivity extends ListActivity {
-	
+    Context mC;
+    ArrayList<Plan> plans;
 	@Override
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.plan_stand_main);
+		mC = this;
 		generatePlans();
 	}
+	
+	@Override
+    protected void onListItemClick(ListView lv, View v, int position, long id) {
+        Toast.makeText(mC, "Du har valgt: " +plans.get(position).name, Toast.LENGTH_SHORT).show();
+    }
 
 	public void generatePlans() {
-		ArrayList<Plan> plans = new ArrayList<Plan>();
+		plans = new ArrayList<Plan>();
 		for(int i=0;i < 10;i++) {
 			plans.add(new Plan());
 		}
@@ -42,12 +53,16 @@ public class StandardizedPlanActivity extends ListActivity {
 	private class StandardPlanAdapter extends ArrayAdapter<Plan> {
 		private final Activity context;
 		private final ArrayList<Plan> plans;
+		
 
 		public StandardPlanAdapter(Activity context, ArrayList<Plan> plans) {
 			super(context, R.layout.plan_stand_rowlayout, plans);
 			this.context = context;
 			this.plans = plans;
 		}
+		
+		
+		
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {

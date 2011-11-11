@@ -51,7 +51,7 @@ public class JointTrainingActivity extends ListActivity  {
 
 
     public void makeList() {
-        Log.i("RUN", "KJØRER MAKELIST");
+        Log.i("RUN", "KJï¿½RER MAKELIST");
         this.lessons = this.jT.getF();
         this.dayName = (TextView)findViewById(R.id.dayView);
         this.dayDate = (TextView)findViewById(R.id.dateView);
@@ -121,14 +121,14 @@ public class JointTrainingActivity extends ListActivity  {
         cA.notifyDataSetChanged();
         break;
         case 6: this.lessons = this.jT.getSa();
-        this.dayName.setText("Lørdag");
+        this.dayName.setText("Lï¿½rdag");
         this.dayDate.setText(this.lessons.get(0).getDate());
         this.cA = new ContactAdapter(this, R.layout.list_item, this.lessons);
         setListAdapter(this.cA);
         cA.notifyDataSetChanged();
         break;
         case 7: this.lessons = this.jT.getSu();
-        this.dayName.setText("Søndag");
+        this.dayName.setText("Sï¿½ndag");
         this.dayDate.setText(this.lessons.get(0).getDate());
         this.cA = new ContactAdapter(this, R.layout.list_item, this.lessons);
         setListAdapter(this.cA);
@@ -206,10 +206,10 @@ public class JointTrainingActivity extends ListActivity  {
                         public void onClick(View v) {
                             AlertDialog.Builder alt_bld = new AlertDialog.Builder(JointTrainingActivity.this.mContext);
                             if (spots <=0) {
-                                alt_bld.setMessage("Sett deg på venteliste for " + l.getName()+ " ?");
+                                alt_bld.setMessage("Sett deg pÃ¥ venteliste for " + l.getName()+ " ?");
                             }
                             else {
-                                alt_bld.setMessage("Meld deg på " + l.getName()+ " ?");
+                                alt_bld.setMessage("Meld deg pÃ¥ " + l.getName()+ " ?");
                             }
 
                             alt_bld.setCancelable(false)

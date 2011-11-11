@@ -1,5 +1,5 @@
 /**
- * @author André S. Hansen
+ * @author Andrï¿½ S. Hansen
  *
  */
 package sittapp.presentationlayer.plan;
@@ -40,6 +40,7 @@ public class WorkoutRepeatActivity extends Activity {
 	
 	public void okClick(View v) {
 		// TODO: Add logic to fetch which checkboxes are saved
+	    returnWorkout();
 		finish();
 	}
 	

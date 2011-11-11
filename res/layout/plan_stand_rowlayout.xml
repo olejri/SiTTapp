@@ -4,10 +4,10 @@
     android:layout_height="wrap_content"
     android:weightSum="1.0" android:orientation="vertical">
     <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/planrow_top" android:background="@color/planrow_namebar">
-        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Textviewewewe" android:id="@+id/planrow_name" android:layout_marginLeft="3dp"></TextView>
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Textviewewewe" android:id="@+id/planrow_name" android:layout_marginLeft="3dp" android:textColor="@color/white"></TextView>
     </LinearLayout>
     <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:layout_height="1dp" android:background="@color/lgrey"></LinearLayout>
-    <LinearLayout android:layout_width="fill_parent" android:id="@+id/planrow_bot" android:layout_height="66dp">
+    <LinearLayout android:layout_width="fill_parent" android:id="@+id/planrow_bot" android:layout_height="66dp"  android:background="@color/planrow_main">
 	    <RelativeLayout android:layout_height="match_parent" android:layout_width="249dp" android:id="@+id/planrow_left">
 	        <LinearLayout android:id="@+id/planrow_cardio_layout" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_width="match_parent" android:layout_height="20dp" android:layout_marginTop="3dp">
 	            <TextView android:layout_height="wrap_content" android:id="@+id/textView1" android:text="Kondisjon" android:layout_width="90dp" android:layout_marginLeft="10dp" android:textColor="@color/black"></TextView>

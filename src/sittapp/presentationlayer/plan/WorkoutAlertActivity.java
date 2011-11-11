@@ -1,5 +1,5 @@
 /**
- * @author André S. Hansen
+ * @author Andrï¿½ S. Hansen
  *
  */
 package sittapp.presentationlayer.plan;
@@ -59,6 +59,7 @@ public class WorkoutAlertActivity extends Activity {
 	   else if (clickedButton.getId() == R.id.alertSelectButton7) {
 	   }
 	   //TODO: Store the choice.
+	   returnWorkout();
 	   finish();
 	}
 

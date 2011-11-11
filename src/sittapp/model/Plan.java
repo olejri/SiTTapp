@@ -15,13 +15,13 @@ public class Plan {
 		String[] names = {
 				"Rock your world", 
 				"Whoha!", 
-				"Gjør susen", 
+				"GjÃ¸r susen", 
 				"5star king", 
 				"Owyea!", 
 				"Passer deg garr",
 				"SiT 2012",
 				"SiT 2033",
-				"Juleøktene",
+				"JuleÃ¸ktene",
 				"Sommer",
 				"Kanskje for deg?"
 		};
