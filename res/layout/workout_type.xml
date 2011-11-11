@@ -3,9 +3,11 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@+id/toplayout">
-    <TextView android:id="@+id/textView1" android:text="Aktivitet" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></TextView>
-    <ImageButton android:layout_width="wrap_content" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignLeft="@+id/weightWorkoutButton" android:id="@+id/cardioWorkoutButton" android:onClick="cardioWorkoutClick"></ImageButton>
-    <ImageButton android:layout_width="wrap_content" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_below="@+id/cardioWorkoutButton" android:layout_alignLeft="@+id/cardioWorkoutButton" android:id="@+id/jointWorkoutButton" android:onClick="jointWorkoutClick"></ImageButton>
-    <ImageButton android:layout_width="wrap_content" android:id="@+id/weightWorkoutButton" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_above="@+id/cardioWorkoutButton" android:layout_centerHorizontal="true" android:onClick="weightWorkoutClick"></ImageButton>
+    android:weightSum="1" android:id="@+id/toplayout" android:background="@color/plan_background">
+	<RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/bar_custom_repeat">
+		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Type" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white"></TextView>
+    </RelativeLayout>
+    <Button android:text="Kondisjon" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignLeft="@+id/weightWorkoutButton" android:id="@+id/cardioWorkoutButton" android:onClick="cardioWorkoutClick" android:layout_width="150dp"></Button>
+    <Button android:text="Gruppetime" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_below="@+id/cardioWorkoutButton" android:layout_alignLeft="@+id/cardioWorkoutButton" android:id="@+id/jointWorkoutButton" android:onClick="jointWorkoutClick" android:layout_width="150dp"></Button>
+    <Button android:text="Styrke" android:id="@+id/weightWorkoutButton" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_above="@+id/cardioWorkoutButton" android:layout_centerHorizontal="true" android:onClick="weightWorkoutClick" android:layout_width="150dp"></Button>
 </RelativeLayout>

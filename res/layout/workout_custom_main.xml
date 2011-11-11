@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@+id/toplayout">
+    android:weightSum="1" android:id="@+id/toplayout" android:background="@color/plan_background">
     <RelativeLayout android:id="@+id/svlayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_below="@+id/header_layout">
         	<ListView
     android:id="@+id/android:list"

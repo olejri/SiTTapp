@@ -45,7 +45,6 @@ public class StandardizedPlanActivity extends ListActivity {
 
 		public StandardPlanAdapter(Activity context, ArrayList<Plan> plans) {
 			super(context, R.layout.plan_stand_rowlayout, plans);
-			Log.d("PLANSsize", ""+plans.size());
 			this.context = context;
 			this.plans = plans;
 		}

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <color name="maintext">#999933</color>
-    <color name="black">#000000</color>
-    <color name="background_menu">#C2D6DD</color>
-    <color name="icon_color">#636363</color>
-    <color name="white">#ffffff</color>
-    <color name="lgrey">#cdc9c9</color>
-    <color name="yellow">#FFFF00</color>
-    <color name="lyellow">#f8f3e2</color>
-     <color name="lgreen">#8AB82E</color>
-     <color name="green">#6B8F24</color>
-     <color name="planrow_namebar">#fbbe97</color>
-     <color name="planrow_main">#feddc7</color>
-    
+	<color name="maintext">#999933</color>
+	<color name="black">#000000</color>
+	<color name="background_menu">#C2D6DD</color>
+	<color name="icon_color">#636363</color>
+	<color name="white">#ffffff</color>
+	<color name="lgrey">#cdc9c9</color>
+	<color name="yellow">#FFFF00</color>
+	<color name="lyellow">#f8f3e2</color>
+	<color name="lgreen">#8AB82E</color>
+	<color name="green">#6B8F24</color>
+	<color name="planrow_namebar">#fbbe97</color>
+	<color name="planrow_main">#feddc7</color>
+	<color name="plan_background">#fff0e7</color>
 </resources>

@@ -21,7 +21,7 @@ public class TrainingBookActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tbalayout);
+        setContentView(R.layout.plan);
     }   
     public void toCustomPlan(View v) {
         Intent myIntent = new Intent(v.getContext(), CustomPlanActivity.class);

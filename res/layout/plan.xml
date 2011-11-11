@@ -3,7 +3,10 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@+id/tbalayout">
+    android:weightSum="1" android:id="@+id/tbalayout" android:background="@color/plan_background">
+	<RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/bar_custom_repeat">
+		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Plan" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white"></TextView>
+    </RelativeLayout>
     <Button android:id="@+id/button2" android:layout_width="wrap_content" android:text="Standardisert plan" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="117dp" android:clickable="true" android:onClick="toStandardizedPlan"></Button>
     <Button android:id="@+id/button1" android:layout_width="wrap_content" android:text="Egendefinert plan" android:layout_height="wrap_content" android:layout_below="@+id/button2" android:layout_alignLeft="@+id/button2" android:layout_alignRight="@+id/button2" android:clickable="true" android:onClick="toCustomPlan"></Button>
 </RelativeLayout>
