@@ -1,5 +1,6 @@
 package sittapp.presentationlayer;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
@@ -30,7 +32,9 @@ import sittapp.model.*;
 
 public class MainActivity extends Activity {
     HttpCom com = new HttpCom();
-    
+    TextView date;
+    TextView eName;
+    ArrayList<String> dates = new ArrayList<String>();
 
 
     /** Called when the activity is first created. */
@@ -38,24 +42,40 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         comExamples();
         super.onCreate(savedInstanceState);
+        setTheme(android.R.style.Theme_Translucent);
         setContentView(R.layout.main);
+        makeDates();
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
-//        
-//        Calendar cal = Calendar.getInstance();
-//        cal.set(Calendar.YEAR, 2011);
-//        cal.set(Calendar.DAY_OF_YEAR, 312);
-//        int weekday = cal.get(Calendar.DAY_OF_WEEK);
-//        switch (weekday) {
-//        case 1 : date.setText("Søndag");break;
-//        case 2: date.setText("Mandag");break;
-//        case 3: date.setText("Tirsdag");break;
-//        case 4: date.setText("Onsdag");break;
-//        case 5: date.setText("Torsdag");break;
-//        case 6: date.setText("Fredag");break;
-//        case 7: date.setText("Lørdag");break;
-//        }
-      
+        date = (TextView)findViewById(R.id.textView3);
+        eName = (TextView)findViewById(R.id.textView2);
+        gallery.setCallbackDuringFling(true);
+
+        gallery.setOnItemSelectedListener(new OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                date.setText(dates.get(arg2));
+                eName.setText(dates.get(arg2+5));
+
+
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+        //        Calendar cal = Calendar.getInstance();
+        //        cal.set(Calendar.YEAR, 2011);
+        //        cal.set(Calendar.DAY_OF_YEAR, 312);
+        //        int weekday = cal.get(Calendar.DAY_OF_WEEK);
+        //        switch (weekday) {
+        //        case 1 : date.setText("Søndag");break;
+        //        case 2: date.setText("Mandag");break;
+        //        case 3: date.setText("Tirsdag");break;
+        //        case 4: date.setText("Onsdag");break;
+        //        case 5: date.setText("Torsdag");break;
+        //        case 6: date.setText("Fredag");break;
+        //        case 7: date.setText("Lørdag");break;
+        //        }
+
 
 
         gallery.setOnItemClickListener(new OnItemClickListener() {
@@ -74,6 +94,22 @@ public class MainActivity extends Activity {
         //boolean invited = com.gangInvite(newGang.getId(), "Nelich");
         //boolean accepted = com.gangAccept(newGang.getId(), "Nelich");
         //boolean declined = com.gangDecline(newGang.getId(), "Nelich");
+    }
+
+
+
+    public void makeDates() {
+        dates.add("11.11.2011");
+        dates.add("12.11.2011");
+        dates.add("13.11.2011");
+        dates.add("14.11.2011");
+        dates.add("15.11.2011");
+        dates.add("Start trening");
+        dates.add("Start trening");
+        dates.add("Hurtig trening");
+        dates.add("Hurtig trening");
+        dates.add("Start trening");
+
     }
 
 
@@ -113,10 +149,11 @@ public class MainActivity extends Activity {
         private Context mContext;
 
         private Integer[] mImageIds = {
+                R.drawable.start_trening,
+                R.drawable.start_trening,
                 R.drawable.hurtigtrening,
-                R.layout.list_contact,
-                R.drawable.pause,
-                R.layout.pmlayout
+                R.drawable.hurtigtrening,
+                R.drawable.start_trening
         };
 
         public ImageAdapter(Context c) {
