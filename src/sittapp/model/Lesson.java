@@ -10,14 +10,16 @@ package sittapp.model;
 public class Lesson {
     String name, date, info, time;
     boolean join;
+    int full;
 
     
-    public Lesson(String name, String date, String info, String time, boolean join) {
+    public Lesson(String name, String date, String info, String time, boolean join, int full) {
         this.name = name;
         this.date = date;
         this.info = info;
         this.time = time;
         this.join = join;
+        this.full = full;
         
     }
       
@@ -31,5 +33,9 @@ public class Lesson {
     }
     
     public boolean getJoin() {return join;}
+    public int getFull() {return full;}
+    public void setFull(int full) {
+        this.full = full;
+   }
     
 }

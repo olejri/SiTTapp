@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:padding="4dip">
-    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_alignBottom="@+id/checkBox1" android:layout_toLeftOf="@+id/checkBox1" android:id="@+id/lessonname" android:focusable="false" android:focusableInTouchMode="false"></TextView>
+	android:padding="4dip" android:background="@color/white">
+    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_alignBottom="@+id/checkBox1" android:layout_toLeftOf="@+id/checkBox1" android:id="@+id/lessonname" android:focusable="false" android:focusableInTouchMode="false" android:textColor="@color/black"></TextView>
     <CheckBox android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:id="@+id/joinedTrue" android:focusable="false" android:focusableInTouchMode="false"></CheckBox>
-    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignBottom="@+id/joinedTrue" android:layout_alignLeft="@+id/lessonname" android:layout_below="@+id/lessonname" android:layout_alignRight="@+id/lessonname" android:id="@+id/lessonTime" android:focusable="false" android:focusableInTouchMode="false"></TextView>
+    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignBottom="@+id/joinedTrue" android:layout_alignLeft="@+id/lessonname" android:layout_below="@+id/lessonname" android:layout_alignRight="@+id/lessonname" android:id="@+id/lessonTime" android:focusable="false" android:focusableInTouchMode="false" android:textColor="@color/black"></TextView>
+    <TextView android:layout_width="wrap_content" android:textSize="20sp" android:layout_height="wrap_content" android:id="@+id/spotsLeft" android:layout_toLeftOf="@+id/joinedTrue" android:layout_marginTop="13dip" android:text="0"></TextView>
 
     	
 </RelativeLayout>

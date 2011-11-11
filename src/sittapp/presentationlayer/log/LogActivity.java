@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
@@ -27,6 +28,9 @@ public class LogActivity extends TabActivity {
  //   ImageView week;
   //  ImageView month;
     TabHost tabHost;
+    Button button1;
+    Button button2;
+    Button button3;
     int knapp = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,9 @@ public class LogActivity extends TabActivity {
         setTheme(R.style.YourTheme);
         setContentView(R.layout.llayout);
         tabHost = (TabHost)findViewById(android.R.id.tabhost);
+        button1 = (Button)findViewById(R.id.button1);
+        button2 = (Button)findViewById(R.id.button2);
+        button3 = (Button)findViewById(R.id.button3);
 //        TabSpec firstTabSpec = tabHost.newTabSpec("tid1");
 //        TabSpec secondTabSpec = tabHost.newTabSpec("tid1");
 //        TabSpec thirdTabSpec = tabHost.newTabSpec("tid1");
@@ -49,20 +56,20 @@ public class LogActivity extends TabActivity {
 
             public void onTabChanged(String tabId) {
                 if (knapp == 0) {
-                if (tabId.equals("Dag"))day.setImageResource(R.drawable.lggtil_knapp);
-                else if (tabId.equals("Uke"))day.setImageResource(R.drawable.button_network);
-                else if(tabId.equals("Måned"))day.setImageResource(R.drawable.standar_knapp);
+//                if (tabId.equals("Dag"))day.setImageResource(R.drawable.lggtil_knapp);
+//                else if (tabId.equals("Uke"))day.setImageResource(R.drawable.button_network);
+//                else if(tabId.equals("Måned"))day.setImageResource(R.drawable.standar_knapp);
                 }
                 else if (knapp ==1) {
-                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.fun);
-                    else if (tabId.equals("Uke"))day.setImageResource(R.drawable.glos);
-                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.icon);
+                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.styrke_log);
+                    else if (tabId.equals("Uke"))day.setImageResource(R.drawable.styrke_log);
+                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.styrke_log);
                     
                 }
                 else if (knapp ==2) {
-                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.onsite);
-                    else if (tabId.equals("Uke"))day.setImageResource(R.drawable.running);
-                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.melding_knapp);
+                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.kondis_log);
+                    else if (tabId.equals("Uke"))day.setImageResource(R.drawable.kondis_log);
+                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.kondis_log);
                     
                 }
                 }
@@ -87,38 +94,49 @@ public class LogActivity extends TabActivity {
     }
     public void showJoint(View v) {
         knapp = 0;
+        button1.setBackgroundResource(R.drawable.gruppe_knapp_farge);
+        button2.setBackgroundResource(R.drawable.styrke_knapp);
+        button3.setBackgroundResource(R.drawable.kondis_knapp);
+        
+        
       //  day.setImageResource(R.color.lgreen);
 //        week.setImageResource(R.color.lgreen);
 //        month.setImageResource(R.color.lgreen);
         int tab = tabHost.getCurrentTab();
         switch (tab) {
-        case 0 : day.setImageResource(R.drawable.lggtil_knapp);break;
-        case 1: day.setImageResource(R.drawable.button_network);break;
-        case 2: day.setImageResource(R.drawable.standar_knapp);break;
+        case 0 : day.setImageResource(R.drawable.gruppetrening_log);break;
+        case 1: day.setImageResource(R.drawable.gruppetrening_log);break;
+        case 2: day.setImageResource(R.drawable.gruppetrening_log);break;
         }
     }
     public void showStrength(View v) {
         knapp = 1;
+        button1.setBackgroundResource(R.drawable.gruppe_knapp);
+        button2.setBackgroundResource(R.drawable.styrke_knapp_farge);
+        button3.setBackgroundResource(R.drawable.kondis_knapp);
        // day.setImageResource(R.color.lgreen);
 //        week.setImageResource(R.color.lgreen);
 //        month.setImageResource(R.color.lgreen);
         int tab = tabHost.getCurrentTab();
         switch (tab) {
-        case 0 : day.setImageResource(R.drawable.fun); break;
-        case 1:  day.setImageResource(R.drawable.glos);break;
-        case 2:  day.setImageResource(R.drawable.icon);break;
+        case 0 : day.setImageResource(R.drawable.styrke_log); break;
+        case 1:  day.setImageResource(R.drawable.styrke_log);break;
+        case 2:  day.setImageResource(R.drawable.styrke_log);break;
         }
   }
     public void showEndurance(View v) {
         knapp =2;
+        button1.setBackgroundResource(R.drawable.gruppe_knapp);
+        button2.setBackgroundResource(R.drawable.styrke_knapp);
+        button3.setBackgroundResource(R.drawable.kondis_knapp_farge);
       //  day.setImageResource(R.color.lgreen);
 //        week.setImageResource(R.color.lgreen);
 //        month.setImageResource(R.color.lgreen);
         int tab = tabHost.getCurrentTab();
         switch (tab) {
-        case 0 : day.setImageResource(R.drawable.onsite);break;
-        case 1:  day.setImageResource(R.drawable.running);break;
-        case 2: day.setImageResource(R.drawable.melding_knapp);break;
+        case 0 : day.setImageResource(R.drawable.kondis_log);break;
+        case 1:  day.setImageResource(R.drawable.kondis_log);break;
+        case 2: day.setImageResource(R.drawable.kondis_log);break;
         } 
        
         

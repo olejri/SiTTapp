@@ -13,5 +13,8 @@
 	<color name="planrow_namebar">#fbbe97</color>
 	<color name="planrow_main">#feddc7</color>
 	<color name="plan_background">#fff0e7</color>
+	<color name="lred"> #FF9999</color>
+	<color name="red"> #F0484B</color>
 	<color name="opaque_back"> #69000000</color>
+	
 </resources>

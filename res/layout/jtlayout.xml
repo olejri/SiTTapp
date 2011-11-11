@@ -3,15 +3,23 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@+id/tbalayout">
+    android:weightSum="1" android:id="@+id/tbalayout" android:background="@color/lred">
     <RelativeLayout
         android:id="@+id/listViewWrapper"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" android:layout_width="260dip" android:layout_marginLeft="30dip" android:layout_marginTop="50dip">
-        <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/android:list" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"></ListView>
+        android:layout_alignParentTop="true" android:layout_width="260dip" android:layout_marginLeft="30dip" android:layout_marginTop="70dip" android:layout_marginBottom="10dip">
+        <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/android:list" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_marginTop="60dip"></ListView>
+        <RelativeLayout android:id="@+id/listtopbar" android:layout_height="60dip" android:layout_width="fill_parent" android:background="@color/red">
+            <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/dayView" android:text="TextView" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:textColor="@color/white"></TextView>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/dateView" android:text="TextView" android:layout_below="@+id/dayView" android:layout_centerHorizontal="true" android:textColor="@color/white"></TextView>
+        </RelativeLayout>
     </RelativeLayout>
-    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_centerVertical="true" android:layout_alignParentLeft="true" android:text="P" android:id="@+id/previousDay" android:onClick="previousDay" android:clickable="true"></Button>
-    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:id="@+id/dayView"></TextView>
-    <Button android:layout_height="wrap_content" android:id="@+id/nextDay" android:layout_width="wrap_content" android:text="N" android:layout_alignBaseline="@+id/previousDay" android:layout_alignBottom="@+id/previousDay" android:layout_alignParentRight="true" android:clickable="true" android:onClick="nextDay"></Button>
-    <TextView android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/dayView" android:layout_centerHorizontal="true" android:id="@+id/dateView"></TextView>
+    <Button android:layout_centerVertical="true" android:layout_alignParentLeft="true" android:id="@+id/previousDay" android:onClick="previousDay" android:clickable="true" android:background="@drawable/arrow_left" android:layout_width="30dip" android:layout_height="30dip"></Button>
+    <RelativeLayout
+        android:id="@+id/jointtopbar"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" android:layout_height="60dip" android:layout_width="fill_parent" android:background="@drawable/red_bar">
+        <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/textView1" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:text="Gruppetime" android:textSize="32sp" android:textColor="@color/white"></TextView>
+    </RelativeLayout>
+    <Button android:id="@+id/nextDay" android:layout_alignBaseline="@+id/previousDay" android:layout_alignBottom="@+id/previousDay" android:layout_alignParentRight="true" android:clickable="true" android:onClick="nextDay" android:background="@drawable/arrow_right" android:layout_width="30dip" android:layout_height="30dip"></Button>
 </RelativeLayout>

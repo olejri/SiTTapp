@@ -17,6 +17,7 @@ public class InfoActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(android.R.style.Theme_Dialog);
         setContentView(R.layout.ilayout);
         
   }

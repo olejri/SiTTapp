@@ -27,9 +27,9 @@
                 </LinearLayout>
             </FrameLayout>
             <RelativeLayout android:id="@+id/botmenu" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                <Button android:layout_width="wrap_content" android:text="Styrke" android:layout_height="wrap_content" android:id="@+id/button2" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:onClick="showStrength" android:clickable="true"></Button>
-                <Button android:layout_width="wrap_content" android:text="Gruppetime" android:layout_height="wrap_content" android:id="@+id/button1" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/button2" android:clickable="true" android:onClick="showJoint"></Button>
-                <Button android:layout_width="wrap_content" android:text="Kondisjon" android:layout_height="wrap_content" android:id="@+id/button3" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/button2" android:onClick="showEndurance" android:clickable="true"></Button>
+                <Button android:id="@+id/button3" android:layout_height="wrap_content" android:clickable="true" android:background="@drawable/kondis_knapp" android:onClick="showEndurance" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_width="108dip"></Button>
+                <Button android:id="@+id/button1" android:layout_height="wrap_content" android:clickable="true" android:background="@drawable/gruppe_knapp" android:onClick="showJoint" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_width="108dip"></Button>
+                <Button android:id="@+id/button2" android:clickable="true" android:background="@drawable/styrke_knapp" android:onClick="showStrength" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_height="wrap_content" android:layout_width="108dip"></Button>
             </RelativeLayout>
         </LinearLayout>
     </TabHost>
