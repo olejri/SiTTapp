@@ -6,15 +6,15 @@
     android:weightSum="1" android:id="@+id/toplayout" android:background="@color/planrow_main">
 	<RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/bar_custom_repeat">
 		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Gjenta" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white"></TextView>
-		<Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/repeatOkButton" android:text="Ok" android:onClick="okClick" android:layout_centerVertical="true" android:layout_alignParentRight="true" android:layout_marginRight="14dp"></Button>
     </RelativeLayout>
-    <LinearLayout android:weightSum="1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="vertical" android:id="@+id/linearLayout1" android:layout_below="@+id/header_layout" android:layout_centerHorizontal="true" android:layout_marginTop="32dp">
-        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:hapticFeedbackEnabled="true" android:id="@+id/repeatCheckbox1" android:textColor="@color/black" android:text="Hver Mandag"></CheckBox>
-        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox2" android:textColor="@color/black" android:text="Hver Tirsdag"></CheckBox>
-        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox3" android:textColor="@color/black" android:text="Hver Onsdag"></CheckBox>
-        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox4" android:textColor="@color/black" android:text="Hver Torsdag"></CheckBox>
-        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox5" android:textColor="@color/black" android:text="Hver Fredag"></CheckBox>
-        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox6" android:textColor="@color/black" android:text="Hver Lørdag"></CheckBox>
-        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/repeatCheckbox7" android:textColor="@color/black" android:text="Hver Søndag"></CheckBox>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/repeatOkButton" android:text="Ok" android:onClick="okClick" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true"></Button>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:weightSum="1" android:id="@+id/linearLayout1" android:orientation="vertical" android:layout_below="@+id/header_layout" android:layout_centerHorizontal="true">
+        <CheckBox android:hapticFeedbackEnabled="true" android:onClick="checkedClick" android:id="@+id/repeatCheckbox1" android:text="Hver Mandag" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content"></CheckBox>
+        <CheckBox android:onClick="checkedClick" android:id="@+id/repeatCheckbox2" android:text="Hver Tirsdag" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content"></CheckBox>
+        <CheckBox android:onClick="checkedClick" android:id="@+id/repeatCheckbox3" android:text="Hver Onsdag" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content"></CheckBox>
+        <CheckBox android:onClick="checkedClick" android:id="@+id/repeatCheckbox4" android:text="Hver Torsdag" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content"></CheckBox>
+        <CheckBox android:onClick="checkedClick" android:id="@+id/repeatCheckbox5" android:text="Hver Fredag" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content"></CheckBox>
+        <CheckBox android:onClick="checkedClick" android:id="@+id/repeatCheckbox6" android:text="Hver Lørdag" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content"></CheckBox>
+        <CheckBox android:onClick="checkedClick" android:id="@+id/repeatCheckbox7" android:text="Hver Søndag" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content"></CheckBox>
     </LinearLayout>
 </RelativeLayout>

@@ -1,11 +1,15 @@
 package sittapp.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Plan {
+public class Plan implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	public int likes = 0;
-	public ArrayList<String> tags = new ArrayList<String>();
+	//public ArrayList<String> tags = new ArrayList<String>();
+	public ArrayList<Workout> workouts = new ArrayList<Workout>();
 	public String name;
 
 	public Plan() {
@@ -26,10 +30,13 @@ public class Plan {
 				"Kanskje for deg?"
 		};
 		this.name = names[gen.nextInt(names.length)];
-		String[] types = {"DUMB", "CARDIO", "JOINT"};
+		String[] types = {"STRENGTH", "CARDIO", "JOINT"};
 		int workoutCount = gen.nextInt(5)+2;
 		for (int i=0; i<workoutCount; i++) {
-			tags.add(types[gen.nextInt(types.length)]);
+			String type = types[gen.nextInt(types.length)];
+			Workout w = new Workout();
+			w.randomize(type);
+			workouts.add(w);
 		}
 	}
 }

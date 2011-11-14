@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 
 public class WorkoutRepeatActivity extends Activity {
 	final static private String TAG = "WorkoutAlert";
@@ -33,22 +35,30 @@ public class WorkoutRepeatActivity extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-        	returnWorkout();
+        	returnWorkout(Activity.RESULT_CANCELED);
         }
         return super.onKeyDown(keyCode, event);
     }
 	
 	public void okClick(View v) {
-		// TODO: Add logic to fetch which checkboxes are saved
-	    returnWorkout();
-		finish();
+	    returnWorkout(Activity.RESULT_OK);
 	}
 	
-    private void returnWorkout() {
-		Log.d(TAG, workout.toString());
+	public void checkedClick(View v) {
+		CheckBox cb = (CheckBox) v;
+		if (cb.getId() == R.id.repeatCheckbox1) {workout.repeatClick("MAN");}
+		else if (cb.getId() == R.id.repeatCheckbox2) {workout.repeatClick("TIR");}
+		else if (cb.getId() == R.id.repeatCheckbox3) {workout.repeatClick("ONS");}
+		else if (cb.getId() == R.id.repeatCheckbox4) {workout.repeatClick("TOR");}
+		else if (cb.getId() == R.id.repeatCheckbox5) {workout.repeatClick("FRE");}
+		else if (cb.getId() == R.id.repeatCheckbox6) {workout.repeatClick("LØR");}
+		else if (cb.getId() == R.id.repeatCheckbox7) {workout.repeatClick("SØN");}
+	}
+	
+    private void returnWorkout(int resultCode) {
 		Intent resultIntent = new Intent(context, WorkoutTypeActivity.class);
 		resultIntent.putExtra("workout", workout);
-		setResult(Activity.RESULT_OK, resultIntent);
-		finish();    	
+		setResult(resultCode, resultIntent);
+		finish();
     }
 }

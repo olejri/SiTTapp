@@ -34,7 +34,7 @@ public class WorkoutAlertActivity extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-        	returnWorkout();
+        	returnWorkout(Activity.RESULT_CANCELED);
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -42,32 +42,21 @@ public class WorkoutAlertActivity extends Activity {
 	//onClick methods
 	public void alertSelectClick(View v) {
 	   Button clickedButton = (Button) v;
-	   if (clickedButton.getId() == R.id.alertSelectButton1) {
-	   }
-	   else if (clickedButton.getId() == R.id.alertSelectButton1) {
-	   }
-	   else if (clickedButton.getId() == R.id.alertSelectButton2) {
-	   }
-	   else if (clickedButton.getId() == R.id.alertSelectButton3) {
-	   }
-	   else if (clickedButton.getId() == R.id.alertSelectButton4) {
-	   }
-	   else if (clickedButton.getId() == R.id.alertSelectButton5) {
-	   }
-	   else if (clickedButton.getId() == R.id.alertSelectButton6) {
-	   }
-	   else if (clickedButton.getId() == R.id.alertSelectButton7) {
-	   }
-	   //TODO: Store the choice.
-	   returnWorkout();
+	   if (clickedButton.getId() == R.id.alertSelectButton1) {workout.alert = "5 min før";}
+	   else if (clickedButton.getId() == R.id.alertSelectButton2) {workout.alert = "15 min før";}
+	   else if (clickedButton.getId() == R.id.alertSelectButton3) {workout.alert = "30 min før";}
+	   else if (clickedButton.getId() == R.id.alertSelectButton4) {workout.alert = "1 time før";}
+	   else if (clickedButton.getId() == R.id.alertSelectButton5) {workout.alert = "2 timer før";}
+	   else if (clickedButton.getId() == R.id.alertSelectButton6) {workout.alert = "1 dag før";}
+	   else if (clickedButton.getId() == R.id.alertSelectButton7) {workout.alert = "2 dager før";}
+	   returnWorkout(Activity.RESULT_OK);
 	   finish();
 	}
 
-    private void returnWorkout() {
-		Log.d(TAG, workout.toString());
+    private void returnWorkout(int resultCode) {
 		Intent resultIntent = new Intent(context, WorkoutTypeActivity.class);
 		resultIntent.putExtra("workout", workout);
-		setResult(Activity.RESULT_OK, resultIntent);
-		finish();    	
+		setResult(resultCode, resultIntent);
+		finish();
     }
 }

@@ -12,7 +12,7 @@ import sittapp.com.RestJsonClient;
 import sittapp.model.*;
 
 public class HttpCom {
-	final static String LOG_TAG = "HttpCom";
+	final static String TAG = "HttpCom";
 	
 	/**
 	 * Soft method to log in with user
@@ -21,7 +21,7 @@ public class HttpCom {
 	 */
 	public User login(String username) {
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
-        qparams.add(new BasicNameValuePair("name", username));
+        qparams.add(new BasicNameValuePair("username", username));
         JSONObject json = RestJsonClient.connect("/login", qparams);
 		try {
 			// Converting JSON to java objects.
@@ -43,7 +43,7 @@ public class HttpCom {
 			}
 			return user;
 		} catch (JSONException e) {
-			e.printStackTrace();
+			Log.i(TAG, "Failed to parse JSON data");
 		}
 		return null;
 	}
@@ -118,6 +118,13 @@ public class HttpCom {
         return checkIfOk(json, "gangLeave");
 	}
 	
+	public ArrayList<User> userList() {
+		List<NameValuePair> qparams = new ArrayList<NameValuePair>();
+		JSONObject json = RestJsonClient.connect("/userlist", qparams);
+		ArrayList<User> users = new ArrayList<User>();
+		return users;
+	}
+	
 	// ******** PRIVATE INTERNAL METHODS ********
 	// ******************************************
 	
@@ -131,7 +138,7 @@ public class HttpCom {
 			}
 			return gang;
 		} catch (JSONException e) {
-			e.printStackTrace();
+			Log.i(TAG, "Failed to parse JSON data");
 			return null;
 		}
 	}
@@ -141,15 +148,15 @@ public class HttpCom {
 		try {
 			msg = json.getString("MSG");
 	        if (msg.equals("OK")) {
-	        	Log.d(LOG_TAG, msgTag+" - success");
+	        	Log.d(TAG, msgTag+" - success");
 	        	return true;
 	        }
 	        else {
-	        	Log.d(LOG_TAG, msgTag+" - failure");
+	        	Log.d(TAG, msgTag+" - failure");
 	        	return false;
 	        }
 		} catch (JSONException e) {
-			e.printStackTrace();
+			Log.i(TAG, "Failed to parse JSON data");
 			return false;
 		}
 	}

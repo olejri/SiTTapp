@@ -37,15 +37,15 @@ public class WorkoutTypeActivity extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-        	returnWorkout();
+        	returnWorkout(Activity.RESULT_CANCELED);
         }
         return super.onKeyDown(keyCode, event);
     }
 	
     //onClick methods
-    public void weightWorkoutClick(View v) {
-    	workout.type = "WEIGHT";
-    	createListDialog(workout.weightItems, workout.weightSelected);
+    public void strengthWorkoutClick(View v) {
+    	workout.type = "STRENGTH";
+    	createListDialog(workout.strengthItems, workout.strengthSelected);
     }
     
     public void cardioWorkoutClick(View v) {
@@ -62,8 +62,8 @@ public class WorkoutTypeActivity extends Activity {
     	builder.setTitle("Treningsinnhold");
     	builder.setMultiChoiceItems(items, selected, new DialogInterface.OnMultiChoiceClickListener() {
     		public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-    			if (workout.type.equals("WEIGHT")) { 
-    				workout.weightSelected[which] = isChecked;
+    			if (workout.type.equals("STRENGTH")) { 
+    				workout.strengthSelected[which] = isChecked;
     			}
     			else if (workout.type.equals("CARDIO")) { 
     				workout.cardioSelected[which] = isChecked;
@@ -73,18 +73,17 @@ public class WorkoutTypeActivity extends Activity {
     	builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
     		public void onClick(DialogInterface dialog, int id) {
     			dialog.cancel();
-    			returnWorkout();
+    			returnWorkout(Activity.RESULT_OK);
     		}
     	});
     	builder.create();
     	builder.show();
     }
     
-    private void returnWorkout() {
-		Log.d(TAG, workout.toString());
+    private void returnWorkout(int resultCode) {
 		Intent resultIntent = new Intent(context, WorkoutTypeActivity.class);
 		resultIntent.putExtra("workout", workout);
-		setResult(Activity.RESULT_OK, resultIntent);
-		finish();    	
+		setResult(resultCode, resultIntent);
+		finish();
     }
 }

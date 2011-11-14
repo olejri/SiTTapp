@@ -17,11 +17,8 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".plan.TrainingBookActivity"></activity>
-		<activity android:name=".plan.CustomPlanActivity"></activity>
 		<activity android:name=".joint.JointTrainingActivity"></activity>
 		<activity android:name=".log.LogActivity"></activity>
-		<activity android:name=".plan.StandardizedPlanActivity"></activity>
 		<activity android:name=".network.TrainingNetworkActivity"></activity>
 		<activity android:name=".log.DayTab"></activity>
 		<activity android:name=".log.WeekTab"></activity>
@@ -30,6 +27,8 @@
 		<activity android:name=".front.QuickInfoActivity"></activity>
 		<activity android:name=".network.GangActivity"></activity>
 		<activity android:name=".network.GangMemberActivity"></activity>
+		<activity android:name=".plan.TrainingBookActivity"></activity>
+		<activity android:name=".plan.StandardizedPlanActivity"></activity>
 		<activity android:name=".plan.AddWorkoutActivity"></activity>
 		<activity android:name=".plan.WorkoutTypeActivity"></activity>
 		<activity android:name=".plan.WorkoutRepeatActivity"></activity>
