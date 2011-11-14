@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:padding="4dip" android:background="@color/white" android:layout_height="150dip">
+    <CheckBox android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:focusable="false" android:focusableInTouchMode="false" android:id="@+id/exercisedone"></CheckBox>
+    <RelativeLayout
+        android:id="@+id/repWrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_below="@+id/kgwrapper" android:layout_alignRight="@+id/kgwrapper" android:layout_alignLeft="@+id/kgwrapper">
+        <Button android:layout_width="30dip" android:text="+" android:layout_height="30dip" android:layout_alignLeft="@+id/minus" android:id="@+id/repPluss" android:layout_alignParentRight="true"></Button>
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:text="10" android:textColor="@color/black" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/repPluss" android:id="@+id/antRep" android:layout_width="24dip"></TextView>
+        <TextView android:id="@+id/TextView02" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:text="rep" android:textColor="@color/black" android:layout_height="wrap_content" android:layout_alignBottom="@+id/repMinus" android:layout_alignParentLeft="true"></TextView>
+        <Button android:layout_width="30dip" android:id="@+id/repMinus" android:text="-" android:layout_height="30dip" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/antRep"></Button>
+    </RelativeLayout>
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/kgwrapper" android:layout_below="@+id/exercisename" android:layout_alignParentLeft="true" android:layout_alignParentRight="true">
+        <TextView android:id="@+id/kg" android:layout_alignParentLeft="true" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:text="kg" android:textColor="@color/black" android:layout_height="wrap_content" android:layout_alignBottom="@+id/pluss"></TextView>
+        <Button android:layout_width="30dip" android:layout_below="@+id/imageView1" android:layout_toLeftOf="@+id/antKg" android:id="@+id/pluss" android:text="-" android:layout_height="30dip"></Button>
+        <Button android:layout_alignRight="@+id/exercisedone" android:layout_width="30dip" android:layout_below="@+id/imageView1" android:id="@+id/minus" android:text="+" android:layout_height="30dip" android:layout_alignParentRight="true"></Button>
+        <TextView android:id="@+id/antKg" android:textAppearance="?android:attr/textAppearanceLarge" android:text="10" android:textColor="@color/black" android:layout_height="wrap_content" android:layout_alignBottom="@+id/pluss" android:layout_toLeftOf="@+id/minus" android:layout_width="24dip"></TextView>
+    </RelativeLayout>
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/repWrapper" android:layout_alignParentLeft="true" android:id="@+id/setwrapper">
+        <Button android:layout_alignLeft="@+id/minus" android:layout_width="30dip" android:layout_alignParentRight="true" android:text="+" android:layout_height="30dip" android:id="@+id/setPluss"></Button>
+        <TextView android:id="@+id/TextView03" android:layout_alignParentLeft="true" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:textColor="@color/black" android:layout_height="wrap_content" android:layout_alignBottom="@+id/Button01" android:text="set"></TextView>
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:text="10" android:textColor="@color/black" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/setPluss" android:id="@+id/antSet" android:layout_width="24dip"></TextView>
+        <Button android:layout_width="30dip" android:id="@+id/setMinus" android:text="-" android:layout_height="30dip" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/antSet"></Button>
+    </RelativeLayout>
+    <TextView android:id="@+id/exercisename" android:textAppearance="?android:attr/textAppearanceLarge" android:focusable="false" android:layout_width="wrap_content" android:text="Benkpress" android:focusableInTouchMode="false" android:textColor="@color/black" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/exercisedone" android:layout_alignBottom="@+id/exercisedone" android:layout_centerHorizontal="true"></TextView>
+    <ImageView android:id="@+id/exerciseImage" android:layout_height="60dip" android:layout_width="60dip" android:src="@drawable/icon_dumbbell" android:layout_alignParentTop="true" android:layout_alignLeft="@+id/kgwrapper"></ImageView>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@+id/kgwrapper" android:layout_centerHorizontal="true" android:text="10 min" android:textColor="@color/black" android:id="@+id/exerciseTime"></TextView>
+
+    	
+</RelativeLayout>
+	

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Workout implements Serializable  {
 	private static final long serialVersionUID = 1L;
-	public CharSequence[] weightItems = {"Benk", "Skråbenk", "Triceps", "Biceps", "Arnold Curl", "Biceps Curl", "Øl Curl"};
+	public CharSequence[] weightItems = {"Benk", "Skr�benk", "Triceps", "Biceps", "Arnold Curl", "Biceps Curl", "�l Curl"};
 	public boolean[] weightSelected = makeFalseList(weightItems);
 	public CharSequence[] cardioItems = {"Sykkel", "Tredemølle", "Løpeskistavsak"};
 	public boolean[] cardioSelected = makeFalseList(cardioItems);

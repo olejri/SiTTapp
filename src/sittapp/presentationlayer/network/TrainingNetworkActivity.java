@@ -4,6 +4,8 @@
 package sittapp.presentationlayer.network;
 
 import java.util.ArrayList;
+
+
 import sittapp.com.HttpCom;
 import sittapp.model.Contacts;
 import sittapp.model.Gang;
@@ -24,11 +26,13 @@ import android.preference.PreferenceManager;
 import android.provider.Contacts.People;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -39,6 +43,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 import android.widget.RelativeLayout;
 import android.content.SharedPreferences;
@@ -119,21 +124,37 @@ public class TrainingNetworkActivity extends ListActivity {
         dialog.setContentView(R.layout.pmlayout);
         final EditText name = (EditText)dialog.findViewById(R.id.editText1);
         name.setHint("Gjeng navn");
+        name.setOnEditorActionListener(new OnEditorActionListener() {            
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (event != null&& (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                    InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    in.hideSoftInputFromWindow(name.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                    name.setSingleLine();
+                    
+                }
+                return false;
+            }
+        });  
         Button inv = (Button)dialog.findViewById(R.id.button1);
         this.sA = new ConAdapter(this, R.layout.list_contact_check, invs);
         ListView list = (ListView)dialog.findViewById(R.id.listView1);
         list.setAdapter(this.sA);
         inv.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+                
                 String n = "" + name.getText();
+                if (n.equals("")) {
+                    Toast.makeText(mContext, "Du kan ikke opprette en gjeng uten navn!", Toast.LENGTH_SHORT).show();
+                }
+                else {
                 Gang gang = com.gangCreate(user.getName(), n);
-                String inv = "";
+                String inv = "\n";
 
                 for (Contacts s : invs) {
                     Log.i("Prøver", "name" + n);
                     Log.i("Her", s.getName() + s.getAdd());
                     if (s.getAdd()) {
-                        if (com.gangInvite(gang.getId(), s.getName())); inv = inv + " " +s.getName(); 
+                        if (com.gangInvite(gang.getId(), s.getName())); inv = inv +s.getName()+ "\n"; 
                     }
                 }
                 if (username != null) {
@@ -141,7 +162,8 @@ public class TrainingNetworkActivity extends ListActivity {
                     makeList();
                 }
                 dialog.cancel();
-                Toast.makeText(mContext, "Sendt invitasjon til: inv", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Sendt invitasjon til: "+ inv, Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
@@ -177,9 +199,11 @@ public class TrainingNetworkActivity extends ListActivity {
         });
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                String joined = "\n";
                 for (Gang g : gangInv) {
                     if (g.getInv()) {
                         com.gangAccept(g.getId(), user.getName());
+                        joined += g.getName()+ "\n";
                     }
                     else {
                         com.gangDecline(g.getId(), user.getName());
@@ -190,7 +214,7 @@ public class TrainingNetworkActivity extends ListActivity {
                     user = TrainingNetworkActivity.this.com.login(username);
                     makeList();
                 }
-
+                Toast.makeText(mContext, "Du er nå ny medlem av:" + joined, Toast.LENGTH_SHORT).show();   
             }    
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -209,6 +233,7 @@ public class TrainingNetworkActivity extends ListActivity {
         final EditText input = new EditText(this);
         input.setText(checkName);
         input.setHint("Brukernavn");
+        input.setSingleLine();
         alert.setView(input);
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {

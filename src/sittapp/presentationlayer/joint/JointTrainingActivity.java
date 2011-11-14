@@ -26,6 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * @author Nelich
@@ -51,7 +52,7 @@ public class JointTrainingActivity extends ListActivity  {
 
 
     public void makeList() {
-        Log.i("RUN", "KJï¿½RER MAKELIST");
+        Log.i("RUN", "KJØRER MAKELIST");
         this.lessons = this.jT.getF();
         this.dayName = (TextView)findViewById(R.id.dayView);
         this.dayDate = (TextView)findViewById(R.id.dateView);
@@ -121,14 +122,14 @@ public class JointTrainingActivity extends ListActivity  {
         cA.notifyDataSetChanged();
         break;
         case 6: this.lessons = this.jT.getSa();
-        this.dayName.setText("Lï¿½rdag");
+        this.dayName.setText("Lørdag");
         this.dayDate.setText(this.lessons.get(0).getDate());
         this.cA = new ContactAdapter(this, R.layout.list_item, this.lessons);
         setListAdapter(this.cA);
         cA.notifyDataSetChanged();
         break;
         case 7: this.lessons = this.jT.getSu();
-        this.dayName.setText("Sï¿½ndag");
+        this.dayName.setText("Søndag");
         this.dayDate.setText(this.lessons.get(0).getDate());
         this.cA = new ContactAdapter(this, R.layout.list_item, this.lessons);
         setListAdapter(this.cA);
@@ -147,6 +148,7 @@ public class JointTrainingActivity extends ListActivity  {
         String info = l.getInfo();
         Dialog dialog = new Dialog(this.mContext);
         dialog.setContentView(R.layout.list_info);
+        
         dialog.setTitle("Info");
         TextView tInfo = (TextView)dialog.findViewById(R.id.listinfo);
         tInfo.setText(info);
@@ -205,44 +207,69 @@ public class JointTrainingActivity extends ListActivity  {
                     joined.setOnClickListener(new OnClickListener() {
                         public void onClick(View v) {
                             AlertDialog.Builder alt_bld = new AlertDialog.Builder(JointTrainingActivity.this.mContext);
-                            if (spots <=0) {
-                                alt_bld.setMessage("Sett deg pÃ¥ venteliste for " + l.getName()+ " ?");
+                            Log.i("JOINED = ???", ""+ joined.isChecked());
+                            if(!joined.isChecked()) {
+                                alt_bld.setMessage("Meld deg av " + l.getName()+ " ?");
                             }
                             else {
-                                alt_bld.setMessage("Meld deg pÃ¥ " + l.getName()+ " ?");
+                                if (spots <=0) {
+                                    alt_bld.setMessage("Sett deg på venteliste for " + l.getName()+ " ?");
+                                }
+                                else {
+                                    alt_bld.setMessage("Meld deg på " + l.getName()+ " ?");
+                                }
                             }
-
                             alt_bld.setCancelable(false)
                             .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    l.setJoin(true);
-                                    if (spots <=0) {
-                                        l.setFull(spots-1);
-                                        spotsLeft.setText("" +l.getFull());
+                                    Log.i("JOINED = ???", ""+ joined.isChecked());
+                                    if (!joined.isChecked()) {
+                                        l.setJoin(false);
+                                        if (spots <=0) {
+                                            l.setFull(spots);
+                                            spotsLeft.setText("" +l.getFull());
+                                            Toast.makeText(mContext, "Meldt av " + l.getName(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        else {
+                                            l.setFull(spots);
+                                            spotsLeft.setText("+" +l.getFull());
+                                            Toast.makeText(mContext, "Meldt av " + l.getName(), Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                     else {
-                                        l.setFull(spots-1);
-                                        spotsLeft.setText("+" +l.getFull());
+                                        l.setJoin(true);
+                                        if (spots <=0) {
+                                            l.setFull(spots-1);
+                                            spotsLeft.setText("" +l.getFull());
+                                            Toast.makeText(mContext, "Du står på venteliste for " + l.getName(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        else {
+                                            l.setFull(spots-1);
+                                            spotsLeft.setText("+" +l.getFull());
+                                            Toast.makeText(mContext, "Du er meldt på " + l.getName() + "\nkl: " + l.getTime(), Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                 }
                             })
                             .setNegativeButton("Nei", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    joined.setChecked(false);
+                                    Log.i("JOINED = ???", ""+ joined.isChecked());
+                                    if (joined.isChecked()) {
+                                        joined.setChecked(false);
+                                    }
+                                    else {
+                                        joined.setChecked(true);
+                                    }
+
                                     dialog.cancel();
                                 }
                             });
-
                             alt_bld.show();
                         }
-
                     });
                 }
-
             }
             return v;
-
         }
-
     }
 }

@@ -3,6 +3,7 @@ package sittapp.presentationlayer;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import android.app.Activity;
 import android.content.Context;
@@ -33,6 +34,7 @@ import sittapp.model.*;
 public class MainActivity extends Activity {
     HttpCom com = new HttpCom();
     TextView date;
+    TextView people;
     TextView eName;
     ArrayList<String> dates = new ArrayList<String>();
 
@@ -48,9 +50,10 @@ public class MainActivity extends Activity {
         Gallery gallery = (Gallery) findViewById(R.id.window);
         gallery.setAdapter(new ImageAdapter(this));
         date = (TextView)findViewById(R.id.textView3);
+        people =(TextView)findViewById(R.id.people);
         eName = (TextView)findViewById(R.id.textView2);
+        ranStatus();
         gallery.setCallbackDuringFling(true);
-
         gallery.setOnItemSelectedListener(new OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 date.setText(dates.get(arg2));
@@ -86,7 +89,25 @@ public class MainActivity extends Activity {
             }
         });
     }
-
+    
+    public void ranStatus() {
+        int ran = 0;
+        Random generator = new Random();
+        ran = generator.nextInt(3);
+        Log.i("random", ""+ran);
+        if(ran == 0) {
+            people.setText("230");
+            people.setTextColor(getResources().getColor(R.color.super_green));
+        }
+        else if(ran == 1) {
+            people.setText("540");
+            people.setTextColor(getResources().getColor(R.color.super_yellow));
+        }
+        else {
+            people.setText("980");
+            people.setTextColor(getResources().getColor(R.color.super_red));
+        }
+    }
     public void comExamples() {
         User user = com.login("Andriod");
         //Gang newGang = com.gangCreate("Andriod", "Bottlebois");
@@ -95,8 +116,6 @@ public class MainActivity extends Activity {
         //boolean accepted = com.gangAccept(newGang.getId(), "Nelich");
         //boolean declined = com.gangDecline(newGang.getId(), "Nelich");
     }
-
-
 
     public void makeDates() {
         dates.add("11.11.2011");
