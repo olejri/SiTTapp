@@ -5,7 +5,7 @@
     <RelativeLayout
         android:id="@+id/wrapperInfo"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:layout_alignParentTop="true">
-        <TextView android:id="@+id/listinfo" android:layout_width="fill_parent" android:textSize="16sp" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_height="150dip"></TextView>
+        android:layout_height="wrap_content" android:layout_alignParentTop="true" android:background="@color/lred">
+        <TextView android:id="@+id/listinfo" android:layout_width="fill_parent" android:textSize="16sp" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_height="150dip" android:textColor="@color/black"></TextView>
     </RelativeLayout>
 </RelativeLayout>

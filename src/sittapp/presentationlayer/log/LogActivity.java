@@ -47,10 +47,11 @@ public class LogActivity extends TabActivity {
         day = (ImageView)findViewById(R.id.dayImage);
 //        week = (ImageView)findViewById(R.id.weekImage);
 //        month = (ImageView)findViewById(R.id.monthImage);
-
+        button2.setBackgroundResource(R.drawable.styrke_knapp_farge);
+        day.setImageResource(R.drawable.styrke_log_day);
         setupTab(new TextView(this), "Dag", new Intent(this,DayTab.class));
         setupTab(new TextView(this), "Uke", new Intent(this,WeekTab.class));
-        setupTab(new TextView(this), "MÃ¥ned", new Intent(this,MonthTab.class));
+        setupTab(new TextView(this), "Måned", new Intent(this,MonthTab.class));
         tabHost.getTabWidget().setStripEnabled(false);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
 
@@ -61,15 +62,15 @@ public class LogActivity extends TabActivity {
 //                else if(tabId.equals("Mï¿½ned"))day.setImageResource(R.drawable.standar_knapp);
                 }
                 else if (knapp ==1) {
-                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.styrke_log);
+                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.styrke_log_day);
                     else if (tabId.equals("Uke"))day.setImageResource(R.drawable.styrke_log);
-                    else if(tabId.equals("MÃ¥ned"))day.setImageResource(R.drawable.styrke_log);
+                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.styrke_log_month);
                     
                 }
                 else if (knapp ==2) {
-                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.kondis_log);
+                    if (tabId.equals("Dag"))day.setImageResource(R.drawable.kondis_log_day);
                     else if (tabId.equals("Uke"))day.setImageResource(R.drawable.kondis_log);
-                    else if(tabId.equals("MÃ¥ned"))day.setImageResource(R.drawable.kondis_log);
+                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.kondis_log_month);
                     
                 }
                 }
@@ -119,9 +120,9 @@ public class LogActivity extends TabActivity {
 //        month.setImageResource(R.color.lgreen);
         int tab = tabHost.getCurrentTab();
         switch (tab) {
-        case 0 : day.setImageResource(R.drawable.styrke_log); break;
+        case 0 : day.setImageResource(R.drawable.styrke_log_day); break;
         case 1:  day.setImageResource(R.drawable.styrke_log);break;
-        case 2:  day.setImageResource(R.drawable.styrke_log);break;
+        case 2:  day.setImageResource(R.drawable.styrke_log_month);break;
         }
   }
     public void showEndurance(View v) {
@@ -134,9 +135,9 @@ public class LogActivity extends TabActivity {
 //        month.setImageResource(R.color.lgreen);
         int tab = tabHost.getCurrentTab();
         switch (tab) {
-        case 0 : day.setImageResource(R.drawable.kondis_log);break;
+        case 0 : day.setImageResource(R.drawable.kondis_log_day);break;
         case 1:  day.setImageResource(R.drawable.kondis_log);break;
-        case 2: day.setImageResource(R.drawable.kondis_log);break;
+        case 2: day.setImageResource(R.drawable.kondis_log_month);break;
         } 
        
         

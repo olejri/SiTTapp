@@ -8,13 +8,16 @@
 	<color name="lgrey">#cdc9c9</color>
 	<color name="yellow">#FFFF00</color>
 	<color name="lyellow">#f8f3e2</color>
-	<color name="lgreen">#8AB82E</color>
-	<color name="green">#6B8F24</color>
+	<color name="lgreen">#E6EACD</color>
+	<color name="green">#D1DBA1</color>
 	<color name="planrow_namebar">#fbbe97</color>
 	<color name="planrow_main">#feddc7</color>
 	<color name="plan_background">#fff0e7</color>
-	<color name="lred"> #FF9999</color>
+	<color name="lred"> #FDD8D9</color>
 	<color name="red"> #F0484B</color>
 	<color name="opaque_back"> #69000000</color>
-	
+	<color name="super_green">#00FF00</color>
+	<color name="super_yellow">#FFFF00</color>
+	<color name="super_red">#FF0000</color>
+		
 </resources>

@@ -51,6 +51,7 @@ public class GangActivity extends ListActivity {
     ArrayList<String> members;
     long gandId;
     String iName ;
+    String gName;
 
 
 
@@ -62,7 +63,8 @@ public class GangActivity extends ListActivity {
         invite = (Button)findViewById(R.id.invite);
         //login();
         iName = getIntent().getStringExtra("name");
-        name.setText(getIntent().getStringExtra("gName"));
+        gName = getIntent().getStringExtra("gName");
+        name.setText(gName);
         gandId = getIntent().getLongExtra("id", 0L);
         members = getIntent().getStringArrayListExtra("members");
         makeList();
@@ -82,6 +84,7 @@ public class GangActivity extends ListActivity {
         .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 com.gangLeave(gandId, iName);
+                Toast.makeText(mContext, "Du er ikke lengre medlem av " + gName+ "!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         })
@@ -96,6 +99,7 @@ public class GangActivity extends ListActivity {
     public void onInvGang(View v) {
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(mContext);
         final EditText input = new EditText(this);
+        input.setSingleLine();
         alt_bld.setMessage("Inviter en venn?")
         .setView(input)
         .setCancelable(false)

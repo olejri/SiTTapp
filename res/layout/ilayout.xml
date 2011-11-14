@@ -7,7 +7,7 @@
     <RelativeLayout android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="1" android:id="@+id/tbalayout" android:layout_marginRight="50dip" android:layout_marginLeft="50dip" android:background="@color/white" android:layout_marginBottom="100dip" android:layout_marginTop="120dip">
+        android:weightSum="1" android:id="@+id/tbalayout" android:layout_marginRight="50dip" android:layout_marginLeft="50dip" android:layout_marginBottom="100dip" android:layout_marginTop="120dip" android:background="@color/lgrey">
         <TextView android:text="07:30-23:00" android:id="@+id/TextView01" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_below="@+id/testview" android:layout_alignLeft="@+id/testview" android:layout_alignRight="@+id/testview" android:textColor="@color/black"></TextView>
         <TextView android:id="@+id/TextView02" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_below="@+id/TextView01" android:layout_alignLeft="@+id/TextView01" android:text="Lørdag" android:textColor="@color/black"></TextView>
         <TextView android:id="@+id/TextView03" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_below="@+id/TextView02" android:layout_alignLeft="@+id/TextView02" android:text="10:00-20:00" android:textColor="@color/black"></TextView>
