@@ -59,6 +59,10 @@ public class QuickInfoActivity extends ListActivity {
     public void onStart(View v) {
         meter.start();
     }
+    
+    public void onStop(View v) {
+        meter.stop();
+    }
 
     public void makeList() {
         Quickworkout out = new Quickworkout();

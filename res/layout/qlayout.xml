@@ -5,14 +5,14 @@
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/tbalayout">
     <RelativeLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="60dip" android:background="@drawable/grey_bar">
-        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:text="Dagens økt" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:id="@+id/qName" android:textColor="@color/white"></TextView>
+        <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:text="Dagens økt" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:id="@+id/qName" android:textColor="@color/white" style="@style/headText"></TextView>
     </RelativeLayout>
     <RelativeLayout android:id="@+id/quickListViewWrapper" android:layout_below="@+id/button1" android:layout_centerHorizontal="true" android:layout_width="300dip" android:layout_marginTop="60dip" android:layout_height="380dip">
         <ListView android:layout_width="match_parent" android:id="@+id/android:list" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"></ListView>
     </RelativeLayout>
     <RelativeLayout android:id="@+id/timerwrapper" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_width="fill_parent" android:layout_height="60dip">
         <Chronometer android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/chronometer1" android:text="Chronometer" android:layout_centerVertical="true" android:layout_centerHorizontal="true"></Chronometer>
-        <Button android:clickable="true" android:layout_width="wrap_content" android:onClick="onStart" android:id="@+id/startTimer" android:text="Start" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/chronometer1"></Button>
-        <Button android:clickable="true" android:layout_width="wrap_content" android:onClick="onStart" android:id="@+id/stopTimer" android:text="Stopp" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toRightOf="@+id/chronometer1"></Button>
+        <Button android:clickable="true" android:onClick="onStart" android:id="@+id/startTimer" android:text="Start" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/chronometer1" android:layout_width="60dip"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="60dip" android:text="Stopp" android:clickable="true" android:id="@+id/stopTimer" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/chronometer1" android:onClick="onStop"></Button>
     </RelativeLayout>
 </RelativeLayout>
