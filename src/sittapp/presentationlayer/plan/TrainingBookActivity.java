@@ -1,12 +1,10 @@
 /**
- * @author André S. Hansen
+ * @author Andrï¿½ S. Hansen
  */
 package sittapp.presentationlayer.plan;
 
 import java.util.ArrayList;
-
-import sittapp.model.Plan;
-import sittapp.model.Workout;
+import sittapp.model.*;
 import sittapp.presentationlayer.R;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -42,7 +40,7 @@ public class TrainingBookActivity extends ListActivity {
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {     
 	  super.onActivityResult(requestCode, resultCode, data); 
 	  if (resultCode!=Activity.RESULT_CANCELED) {
-		  Plan plan = (Plan) data.getSerializableExtra("plan");
+		  plan = (Plan) data.getSerializableExtra("plan");
 		  generateWorkouts(plan.workouts);
 		  TextView activityTitle = (TextView) findViewById(R.id.plan_title);
 		  activityTitle.setText("Ukeplan ("+plan.name+")");

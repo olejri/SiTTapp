@@ -16,6 +16,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIUtils;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,17 +39,12 @@ public class RestJsonClient {
         HttpGet httpget = new HttpGet(uri);
 
         // Execute the request
-        HttpResponse response;
-
         JSONObject json = new JSONObject();
-
         try {
-            response = httpclient.execute(httpget);
-
+        	HttpResponse response = httpclient.execute(httpget);
             HttpEntity entity = response.getEntity();
 
             if (entity != null) {
-
                 // A Simple JSON Response Read
                 InputStream instream = entity.getContent();
                 String result= convertStreamToString(instream);
@@ -68,7 +64,45 @@ public class RestJsonClient {
         return json;
     }
 
-    public static String convertStreamToString(InputStream is) {
+    public static JSONArray connectArray(String path, List<NameValuePair> qparams) {
+        HttpClient httpclient = new DefaultHttpClient();
+        
+        // Format the query paramters
+        URI uri = null;
+		try {
+			uri = URIUtils.createURI("http", url, -1, path, 
+			    URLEncodedUtils.format(qparams, "UTF-8"), null);
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		}
+        HttpGet httpget = new HttpGet(uri);
+
+        // Execute the request
+        JSONArray json = new JSONArray();
+
+        try {
+        	HttpResponse response = httpclient.execute(httpget);
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null) {
+                // A Simple JSON Response Read
+                InputStream instream = entity.getContent();
+                String result= convertStreamToString(instream);
+                Log.d("RestJsonClient", path+": "+result);
+                json=new JSONArray(result);
+                instream.close();
+            }
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json;
+    } 
+    
+    private static String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 

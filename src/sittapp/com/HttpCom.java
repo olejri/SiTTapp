@@ -118,10 +118,19 @@ public class HttpCom {
         return checkIfOk(json, "gangLeave");
 	}
 	
-	public ArrayList<User> userList() {
+	public ArrayList<User> getUserList() {
 		List<NameValuePair> qparams = new ArrayList<NameValuePair>();
-		JSONObject json = RestJsonClient.connect("/userlist", qparams);
+		JSONArray jsonArr = RestJsonClient.connectArray("/userlist", qparams);
 		ArrayList<User> users = new ArrayList<User>();
+		try {
+			for (int i = 0; i<jsonArr.length(); i++) {
+				String name = jsonArr.getJSONObject(i).getString("name");
+				users.add(new User(name));
+			}
+		} catch (JSONException e1) {
+			Log.i(TAG, "Failed to load userlist");
+			Log.d(TAG, e1.toString());
+		}
 		return users;
 	}
 	
