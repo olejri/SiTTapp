@@ -51,7 +51,7 @@ public class LogActivity extends TabActivity {
         day.setImageResource(R.drawable.styrke_log_day);
         setupTab(new TextView(this), "Dag", new Intent(this,DayTab.class));
         setupTab(new TextView(this), "Uke", new Intent(this,WeekTab.class));
-        setupTab(new TextView(this), "M�ned", new Intent(this,MonthTab.class));
+        setupTab(new TextView(this), "Måned", new Intent(this,MonthTab.class));
         tabHost.getTabWidget().setStripEnabled(false);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
 
@@ -59,18 +59,18 @@ public class LogActivity extends TabActivity {
                 if (knapp == 0) {
 //                if (tabId.equals("Dag"))day.setImageResource(R.drawable.lggtil_knapp);
 //                else if (tabId.equals("Uke"))day.setImageResource(R.drawable.button_network);
-//                else if(tabId.equals("M�ned"))day.setImageResource(R.drawable.standar_knapp);
+//                else if(tabId.equals("Måned"))day.setImageResource(R.drawable.standar_knapp);
                 }
                 else if (knapp ==1) {
                     if (tabId.equals("Dag"))day.setImageResource(R.drawable.styrke_log_day);
                     else if (tabId.equals("Uke"))day.setImageResource(R.drawable.styrke_log);
-                    else if(tabId.equals("M�ned"))day.setImageResource(R.drawable.styrke_log_month);
+                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.styrke_log_month);
                     
                 }
                 else if (knapp ==2) {
                     if (tabId.equals("Dag"))day.setImageResource(R.drawable.kondis_log_day);
                     else if (tabId.equals("Uke"))day.setImageResource(R.drawable.kondis_log);
-                    else if(tabId.equals("M�ned"))day.setImageResource(R.drawable.kondis_log_month);
+                    else if(tabId.equals("Måned"))day.setImageResource(R.drawable.kondis_log_month);
                     
                 }
                 }

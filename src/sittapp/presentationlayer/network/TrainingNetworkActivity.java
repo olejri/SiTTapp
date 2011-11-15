@@ -210,7 +210,7 @@ public class TrainingNetworkActivity extends ListActivity {
                     user = TrainingNetworkActivity.this.com.login(username);
                     makeList();
                 }
-                Toast.makeText(mContext, "Du er n� ny medlem av:" + joined, Toast.LENGTH_SHORT).show();   
+                Toast.makeText(mContext, "Du er nå ny medlem av:" + joined, Toast.LENGTH_SHORT).show();   
             }    
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {

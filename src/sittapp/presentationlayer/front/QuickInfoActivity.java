@@ -122,7 +122,7 @@ public class QuickInfoActivity extends ListActivity {
                 done.setOnClickListener(new OnClickListener() {
                     public void onClick(View v) {
                        if (done.isChecked()) {
-                           Toast.makeText(mContext, "Ferdig med øvelse: " + exe.getName(), Toast.LENGTH_SHORT).show();
+                           Toast.makeText(mContext, "Ferdig med Ã¸velse: " + exe.getName(), Toast.LENGTH_SHORT).show();
                        }
                         
                     }
