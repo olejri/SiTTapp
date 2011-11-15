@@ -15,6 +15,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
 public class WorkoutRepeatActivity extends Activity {
 	final static private String TAG = "WorkoutAlert";
@@ -27,6 +28,12 @@ public class WorkoutRepeatActivity extends Activity {
 		setContentView(R.layout.workout_repeat);
 		Intent i = getIntent();
 		workout = (Workout) i.getSerializableExtra("workout");
+		LinearLayout checkboxes = (LinearLayout) findViewById(R.id.repeat_checkboxes);
+		for (int r=0; r<workout.repeat.size(); r++) {
+			Log.d("ID"+r, ""+workout.repeat.get(r).on);
+			CheckBox cb = (CheckBox) checkboxes.getChildAt(r);
+			cb.setChecked(workout.repeat.get(r).on);
+		}
 	}
 	
 	/**
@@ -51,8 +58,8 @@ public class WorkoutRepeatActivity extends Activity {
 		else if (cb.getId() == R.id.repeatCheckbox3) {workout.repeatClick("ONS");}
 		else if (cb.getId() == R.id.repeatCheckbox4) {workout.repeatClick("TOR");}
 		else if (cb.getId() == R.id.repeatCheckbox5) {workout.repeatClick("FRE");}
-		else if (cb.getId() == R.id.repeatCheckbox6) {workout.repeatClick("LØR");}
-		else if (cb.getId() == R.id.repeatCheckbox7) {workout.repeatClick("SØN");}
+		else if (cb.getId() == R.id.repeatCheckbox6) {workout.repeatClick("LÃ˜R");}
+		else if (cb.getId() == R.id.repeatCheckbox7) {workout.repeatClick("SÃ˜N");}
 	}
 	
     private void returnWorkout(int resultCode) {

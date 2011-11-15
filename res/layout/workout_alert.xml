@@ -4,8 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/toplayout" android:background="@color/plan_background">
-    <RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/bar_custom_repeat">
-		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Varsel" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white"></TextView>
+    <RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/orange_bar">
+		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Varsel" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white" android:textSize="32sp"></TextView>
     </RelativeLayout>
     <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="vertical" android:id="@+id/linearLayout1" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_marginBottom="42dp">
         <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/alertSelectButton1" android:text="5 min før" android:onClick="alertSelectClick"></Button>

@@ -1,6 +1,6 @@
 /** 
  * Activity to add a workout to the Custom Plan.
- * @author André S. Hansen
+ * @author Andrï¿½ S. Hansen
  *
  */
 
@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddWorkoutActivity extends Activity {
 	final static private String TAG = "AddWorkout";
@@ -34,6 +35,7 @@ public class AddWorkoutActivity extends Activity {
 		workout = new Workout();
 		Log.d(TAG, "11"+workout.toString());
 		findViewById(R.id.addWorkout_workrow).setVisibility(View.GONE);
+		refreshOkButton();
 	}
 
 	@Override 
@@ -70,6 +72,7 @@ public class AddWorkoutActivity extends Activity {
 			img.setBounds( 0, 0, 60, 60 );
 			b.setCompoundDrawablesWithIntrinsicBounds( img, null, null, null );
 		}
+		refreshOkButton();
 	}
 
 
@@ -97,6 +100,13 @@ public class AddWorkoutActivity extends Activity {
 		plan.workouts.add(workout);
 		resultIntent.putExtra("plan", plan);
 		setResult(Activity.RESULT_OK, resultIntent);
+		Toast.makeText(context, "Ukeplan oppdatert", Toast.LENGTH_SHORT).show();
 		finish();
+	}
+	
+	private void refreshOkButton() {
+		Button b = (Button) findViewById(R.id.workoutAddButton);
+		if (workout.isValid()) b.setVisibility(View.VISIBLE);
+		else b.setVisibility(View.GONE);
 	}
 }

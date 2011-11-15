@@ -3,19 +3,14 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@+id/tbalayout" android:background="@color/plan_background">
-	<RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/bar_custom_repeat">
-		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:text="Ukeplan" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white" android:id="@+id/plan_title"></TextView>
+    android:id="@+id/tbalayout" android:background="@color/plan_background" android:weightSum="1">
+	<RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/orange_bar">
+		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:text="Ukeplan" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white" android:id="@+id/plan_title" android:textSize="32sp"></TextView>
+		<TextView android:text="" android:id="@+id/textView1" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentRight="true" android:layout_width="10dp"></TextView>
+		<Button android:text="" android:id="@+id/button3" android:layout_centerVertical="true" android:layout_toLeftOf="@+id/textView1" android:background="@drawable/lggtil_knapp" android:layout_height="70dp" android:layout_width="70dp" android:onClick="addWorkoutClick"></Button>
     </RelativeLayout>
-    <Button android:text="Finn standarisert ukeplan" android:id="@+id/button2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:clickable="true" android:layout_below="@+id/header_layout" android:layout_alignParentLeft="true" android:onClick="useStandPlanClick"></Button>
-    <Button android:text="Fjern plan" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:clickable="true" android:layout_alignBaseline="@+id/button2" android:layout_alignBottom="@+id/button2" android:layout_toRightOf="@+id/button2" android:onClick="removeWorkouts"></Button>
-    <Button android:text="+" android:id="@+id/button3" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/header_layout" android:layout_toRightOf="@+id/button1" android:layout_alignParentRight="true" android:onClick="addWorkoutClick"></Button>
-	<RelativeLayout android:id="@+id/svlayout"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true" android:layout_alignParentRight="true"
-		android:layout_alignParentBottom="true" android:layout_below="@+id/button2">
-		<ListView android:id="@+id/android:list"
-			android:layout_width="fill_parent" android:layout_height="fill_parent"
-			android:cacheColorHint="#00000000" android:layout_alignParentTop="true"/>
+	<RelativeLayout android:id="@+id/svlayout" android:layout_width="wrap_content" android:layout_height="353dp" android:layout_above="@+id/button2" android:layout_below="@+id/header_layout">
+		<ListView android:cacheColorHint="#00000000" android:layout_alignParentLeft="true" android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/android:list"></ListView>
 	</RelativeLayout>
+	<Button android:text="Velg standarisert ukeplan" android:layout_width="match_parent" android:id="@+id/button2" android:layout_height="50dp" android:clickable="true" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:onClick="useStandPlanClick"></Button>
 </RelativeLayout>

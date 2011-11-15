@@ -8,7 +8,7 @@
         android:id="@+id/topborder"
         android:layout_width="wrap_content"
         android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dip" android:background="@drawable/overskriftsbar">
-        <TextView android:textSize="28sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/white" android:id="@+id/gangName" android:text="Gjenger" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_centerVertical="true" android:layout_centerHorizontal="true"></TextView>
+        <TextView android:textSize="28sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/white" android:id="@+id/gangName" android:text="Navn" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_centerVertical="true" android:layout_centerHorizontal="true"></TextView>
     </RelativeLayout>
     <RelativeLayout android:id="@+id/listview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/topborder" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true">
         <ListView android:id="@+id/android:list" android:layout_width="fill_parent" android:layout_height="268dp" android:layout_alignParentBottom="true" android:layout_alignParentTop="true"></ListView>

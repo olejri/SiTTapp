@@ -23,8 +23,8 @@ public class Workout implements Serializable  {
 		repeat.add(new WorkoutRepeat("ONS"));
 		repeat.add(new WorkoutRepeat("TOR"));
 		repeat.add(new WorkoutRepeat("FRE"));
-		repeat.add(new WorkoutRepeat("LØR"));
-		repeat.add(new WorkoutRepeat("SØN"));
+		repeat.add(new WorkoutRepeat("LÃ˜R"));
+		repeat.add(new WorkoutRepeat("SÃ˜N"));
 	}
 	
 	public void randomize(String type) {
@@ -79,6 +79,11 @@ public class Workout implements Serializable  {
 			}
 		}
 		return stringifyArrayList(list);
+	}
+	
+	public boolean isValid() {
+		if (type.equals("")) return false;
+		else return false;
 	}
 	
 	private String stringifyArrayList(ArrayList<String> list) {

@@ -3,8 +3,8 @@
     android:orientation="vertical"
     android:layout_height="fill_parent"
     android:weightSum="1" android:id="@+id/toplayout" android:layout_width="wrap_content" android:background="@color/planrow_main">
-	<RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/bar_custom_repeat">
-		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Standarisert ukeplan" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white"></TextView>
+	<RelativeLayout android:id="@+id/header_layout" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true" android:layout_height="60dp" android:background="@drawable/orange_bar">
+		<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="Standarisert ukeplan" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true" android:textColor="@color/white" android:textSize="32sp"></TextView>
     </RelativeLayout>
     <RelativeLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:layout_below="@+id/header_layout">
         <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/android:list"></ListView>

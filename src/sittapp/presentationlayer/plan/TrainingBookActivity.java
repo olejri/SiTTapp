@@ -19,11 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TrainingBookActivity extends ListActivity {
 	private Context context = TrainingBookActivity.this;
 	private Plan plan;
+	private int lastClickedWorkout;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,10 +45,29 @@ public class TrainingBookActivity extends ListActivity {
 	  if (resultCode!=Activity.RESULT_CANCELED) {
 		  plan = (Plan) data.getSerializableExtra("plan");
 		  generateWorkouts(plan.workouts);
-		  TextView activityTitle = (TextView) findViewById(R.id.plan_title);
-		  activityTitle.setText("Ukeplan ("+plan.name+")");
 	  }
 	}
+	
+	@Override
+    protected void onListItemClick(ListView lv, View v, int position, long id) {
+		lastClickedWorkout = position;
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Fjern fra plan?");
+		builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				plan.workouts.remove(lastClickedWorkout);
+				generateWorkouts(plan.workouts);
+				dialog.cancel();
+			}
+		});
+		builder.setNegativeButton("Nei", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.cancel();
+			}
+		});
+		builder.create();
+		builder.show();	
+    }
 
 	//onClick methods
 	public void useStandPlanClick(View v) {
@@ -56,7 +78,6 @@ public class TrainingBookActivity extends ListActivity {
 	public void removeWorkouts(View v) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Fjern alt fra planen?");
-
 		builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) {
 				generateWorkouts(new ArrayList<Workout>());
