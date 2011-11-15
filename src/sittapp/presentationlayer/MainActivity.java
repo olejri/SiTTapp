@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,6 +37,11 @@ public class MainActivity extends Activity {
     TextView date;
     TextView people;
     TextView eName;
+    Button index1;
+    Button index2;
+    Button index3;
+    Button index4;
+    Button index5;
     ArrayList<String> dates = new ArrayList<String>();
 
 
@@ -52,12 +58,18 @@ public class MainActivity extends Activity {
         date = (TextView)findViewById(R.id.textView3);
         people =(TextView)findViewById(R.id.people);
         eName = (TextView)findViewById(R.id.textView2);
+        index1 = (Button)findViewById(R.id.index1);
+        index2 = (Button)findViewById(R.id.index2);
+        index3 = (Button)findViewById(R.id.index3);
+        index4 = (Button)findViewById(R.id.index4);
+        index5 = (Button)findViewById(R.id.index5);
         ranStatus();
         gallery.setCallbackDuringFling(true);
         gallery.setOnItemSelectedListener(new OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 date.setText(dates.get(arg2));
                 eName.setText(dates.get(arg2+5));
+                index(arg2);
 
 
             }
@@ -70,13 +82,13 @@ public class MainActivity extends Activity {
         //        cal.set(Calendar.DAY_OF_YEAR, 312);
         //        int weekday = cal.get(Calendar.DAY_OF_WEEK);
         //        switch (weekday) {
-        //        case 1 : date.setText("Søndag");break;
+        //        case 1 : date.setText("Sï¿½ndag");break;
         //        case 2: date.setText("Mandag");break;
         //        case 3: date.setText("Tirsdag");break;
         //        case 4: date.setText("Onsdag");break;
         //        case 5: date.setText("Torsdag");break;
         //        case 6: date.setText("Fredag");break;
-        //        case 7: date.setText("Lørdag");break;
+        //        case 7: date.setText("Lï¿½rdag");break;
         //        }
 
 
@@ -89,7 +101,17 @@ public class MainActivity extends Activity {
             }
         });
     }
-    
+
+    public void index(int i) {
+        switch (i) {
+        case 0 : index1.setText("M");index1.setBackgroundResource(R.drawable.grey_dot);index2.setText("");index2.setBackgroundResource(R.drawable.grey_dot_small);index3.setText("");index3.setBackgroundResource(R.drawable.grey_dot_small);index4.setText("");index4.setBackgroundResource(R.drawable.grey_dot_small);index5.setText("");index5.setBackgroundResource(R.drawable.grey_dot_small);break;
+        case 1 : index1.setText("");index1.setBackgroundResource(R.drawable.grey_dot_small);index2.setText("T");index2.setBackgroundResource(R.drawable.grey_dot);index3.setText("");index3.setBackgroundResource(R.drawable.grey_dot_small);index4.setText("");index4.setBackgroundResource(R.drawable.grey_dot_small);index5.setText("");index5.setBackgroundResource(R.drawable.grey_dot_small);break;
+        case 2 : index1.setText("");index1.setBackgroundResource(R.drawable.grey_dot_small);index2.setText("");index2.setBackgroundResource(R.drawable.grey_dot_small);index3.setText("O");index3.setBackgroundResource(R.drawable.grey_dot);index4.setText("");index4.setBackgroundResource(R.drawable.grey_dot_small);index5.setText("");index5.setBackgroundResource(R.drawable.grey_dot_small);break;
+        case 3 : index1.setText("");index1.setBackgroundResource(R.drawable.grey_dot_small);index2.setText("");index2.setBackgroundResource(R.drawable.grey_dot_small);index3.setText("");index3.setBackgroundResource(R.drawable.grey_dot_small);index4.setText("T");index4.setBackgroundResource(R.drawable.grey_dot);index5.setText("");index5.setBackgroundResource(R.drawable.grey_dot_small);break;
+        case 4 : index1.setText("");index1.setBackgroundResource(R.drawable.grey_dot_small);index2.setText("");index2.setBackgroundResource(R.drawable.grey_dot_small);index3.setText("");index3.setBackgroundResource(R.drawable.grey_dot_small);index4.setText("");index4.setBackgroundResource(R.drawable.grey_dot_small);index5.setText("F");index5.setBackgroundResource(R.drawable.grey_dot);break;
+        }
+
+    }
     public void ranStatus() {
         int ran = 0;
         Random generator = new Random();
@@ -118,16 +140,16 @@ public class MainActivity extends Activity {
     }
 
     public void makeDates() {
-        dates.add("11.11.2011");
-        dates.add("12.11.2011");
-        dates.add("13.11.2011");
-        dates.add("14.11.2011");
-        dates.add("15.11.2011");
-        dates.add("Start trening");
-        dates.add("Start trening");
-        dates.add("Hurtig trening");
-        dates.add("Hurtig trening");
-        dates.add("Start trening");
+        dates.add("I dag");
+        dates.add("I morra");
+        dates.add("Om to dager");
+        dates.add("Om tre dager");
+        dates.add("Om fire dager");
+        dates.add("Start styrkeÃ¸kt");
+        dates.add("Start styrkeÃ¸kt");
+        dates.add("Lag hurtig trening");
+        dates.add("Lag hurtig trening");
+        dates.add("Start styrkeÃ¸kt");
 
     }
 
@@ -170,8 +192,8 @@ public class MainActivity extends Activity {
         private Integer[] mImageIds = {
                 R.drawable.start_trening,
                 R.drawable.start_trening,
-                R.drawable.hurtigtrening,
-                R.drawable.hurtigtrening,
+                R.drawable.hurtig_trening,
+                R.drawable.hurtig_trening,
                 R.drawable.start_trening
         };
 

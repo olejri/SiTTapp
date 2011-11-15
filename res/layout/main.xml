@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="1" android:id="@string/mainlayout" android:background="@drawable/fotografi">
-    <RelativeLayout android:layout_width="wrap_content" android:id="@string/topbar" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_height="60dip" android:background="@drawable/grey_bar">
+    android:weightSum="1" android:id="@string/mainlayout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <RelativeLayout android:id="@string/topbar" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_height="60dip" android:background="@drawable/grey_bar" android:layout_width="fill_parent">
         <RelativeLayout
             android:id="@+id/peoplepicwrap"
             android:layout_width="80dip" android:layout_height="50dip" android:background="@drawable/grey_button" android:layout_alignParentBottom="true" android:layout_alignParentTop="true" android:layout_marginLeft="3dip">
@@ -17,15 +15,22 @@
             <ImageView android:id="@+id/open" android:src="@drawable/klokke" android:layout_centerVertical="true" android:layout_alignParentLeft="true" android:layout_height="27dip" android:layout_width="27dip" android:layout_marginLeft="4dip"></ImageView>
         </RelativeLayout>
     </RelativeLayout>
-    <RelativeLayout android:id="@string/frontlayout" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@string/topbar" android:layout_alignParentLeft="true">
+    <RelativeLayout android:id="@string/frontlayout" android:layout_below="@string/topbar" android:layout_alignParentLeft="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@drawable/fotoreal">
         <Button android:background="@drawable/s_network" android:clickable="true" android:onClick="toTrainingNetwork" android:id="@+id/sbutton" android:layout_toRightOf="@+id/lbutton" android:layout_alignParentBottom="true" android:layout_height="80dip" android:layout_width="80dip"></Button>
         <Button android:background="@drawable/s_log" android:clickable="true" android:onClick="toLog" android:id="@+id/lbutton" android:layout_toRightOf="@+id/tbutton" android:layout_alignParentBottom="true" android:layout_height="80dip" android:layout_width="80dip"></Button>
         <Button android:background="@drawable/s_joint" android:clickable="true" android:onClick="toJointTraining" android:id="@+id/gbutton" android:layout_alignParentBottom="true" android:layout_height="80dip" android:layout_alignParentLeft="true" android:layout_width="80dip"></Button>
         <Button android:background="@drawable/s_plan" android:clickable="true" android:onClick="toTrainingBook" android:id="@+id/tbutton" android:layout_toRightOf="@+id/gbutton" android:layout_alignParentBottom="true" android:layout_height="80dip" android:layout_width="80dip"></Button>
-        <RelativeLayout android:id="@+id/gallerywrapper" android:layout_height="260dip" android:layout_width="250dip" android:background="@color/opaque_back" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="58dp">
+        <RelativeLayout android:id="@+id/gallerywrapper" android:layout_width="250dip" android:background="@color/opaque_back" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_height="300dip" android:layout_marginTop="40dip">
             <TextView android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:id="@+id/textView3" android:layout_height="wrap_content" android:text="TextView" android:layout_width="wrap_content" android:layout_marginTop="5dip"></TextView>
             <TextView android:layout_below="@+id/textView3" android:layout_centerHorizontal="true" android:id="@+id/textView2" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="TextView" android:layout_width="wrap_content" android:layout_marginTop="5dip"></TextView>
             <Gallery android:minHeight="150dip" android:minWidth="150dip" android:layout_height="wrap_content" android:id="@+id/window" android:layout_width="wrap_content" android:layout_below="@+id/textView2" android:layout_centerHorizontal="true" android:layout_marginTop="5dip" android:spacing="5px"></Gallery>
+            <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_marginBottom="8dip">
+                <Button android:layout_alignParentLeft="true" android:background="@drawable/grey_dot" android:layout_width="30dip" android:layout_alignParentTop="true" android:id="@+id/index1" android:text="1" android:layout_height="30dip" android:layout_marginLeft="50dip"></Button>
+                <Button android:layout_toRightOf="@+id/index1" android:background="@drawable/grey_dot" android:layout_width="30dip" android:layout_alignParentTop="true" android:id="@+id/index2" android:text="1" android:layout_height="30dip"></Button>
+                <Button android:layout_toRightOf="@+id/index2" android:background="@drawable/grey_dot" android:layout_width="30dip" android:layout_alignParentTop="true" android:id="@+id/index3" android:text="1" android:layout_height="30dip"></Button>
+                <Button android:layout_toRightOf="@+id/index3" android:background="@drawable/grey_dot" android:layout_width="30dip" android:layout_alignParentTop="true" android:id="@+id/index4" android:text="1" android:layout_height="30dip"></Button>
+                <Button android:background="@drawable/grey_dot" android:layout_width="30dip" android:id="@+id/index5" android:text="1" android:layout_height="30dip" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/index4"></Button>
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
