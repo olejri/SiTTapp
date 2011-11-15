@@ -65,6 +65,7 @@ public class TrainingNetworkActivity extends ListActivity {
     ConAdapter sA;
     private Context mContext = TrainingNetworkActivity.this;
     ArrayList<Contacts> invs;
+    ArrayList<User> users;
     String username;
 
 
@@ -77,18 +78,13 @@ public class TrainingNetworkActivity extends ListActivity {
         setContentView(R.layout.tnlayout);
         name = (TextView)findViewById(R.id.name);
         invite = (Button)findViewById(R.id.invite);
-
         invs = new ArrayList<Contacts>();
-        invs.add(new Contacts ("Andre", false));
-        invs.add(new Contacts ("Ole", false));
-        invs.add(new Contacts ("Linn", false));
-        invs.add(new Contacts ("Anne", false));
-        invs.add(new Contacts ("Linn Johansson", false));
-        invs.add(new Contacts ("Anne Karen Aanonli", false));
-        invs.add(new Contacts ("Lars Hagen", false));
-        invs.add(new Contacts ("Silje Nissen", false));
-        invs.add(new Contacts ("Lise S. Hansen", false));
-        invs.add(new Contacts ("Truls Braaten", false));
+        users = com.getUserList();
+        if (users != null) {
+            for (User u : users) {
+                invs.add(new Contacts(u.getName(), false));
+            }
+        }
         login();
 
 
@@ -151,7 +147,7 @@ public class TrainingNetworkActivity extends ListActivity {
                 String inv = "\n";
 
                 for (Contacts s : invs) {
-                    Log.i("Prøver", "name" + n);
+                    Log.i("Prï¿½ver", "name" + n);
                     Log.i("Her", s.getName() + s.getAdd());
                     if (s.getAdd()) {
                         if (com.gangInvite(gang.getId(), s.getName())); inv = inv +s.getName()+ "\n"; 
@@ -214,7 +210,7 @@ public class TrainingNetworkActivity extends ListActivity {
                     user = TrainingNetworkActivity.this.com.login(username);
                     makeList();
                 }
-                Toast.makeText(mContext, "Du er nå ny medlem av:" + joined, Toast.LENGTH_SHORT).show();   
+                Toast.makeText(mContext, "Du er nï¿½ ny medlem av:" + joined, Toast.LENGTH_SHORT).show();   
             }    
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -415,7 +411,7 @@ public class TrainingNetworkActivity extends ListActivity {
                 final CheckBox checked = (CheckBox)v.findViewById(R.id.invcheck);
                 checked.setOnClickListener(new OnClickListener() {
                     public void onClick(View v) {
-                        Log.i("adder", "TEST");
+                        Log.i("adder", "DEN PÃ… " + position);
                         if (!checked.isChecked()) {
                             invs.get(position).setAdd(false);   
                         }
