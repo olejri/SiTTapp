@@ -48,7 +48,6 @@ public class MainActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        comExamples();
         super.onCreate(savedInstanceState);
         setTheme(android.R.style.Theme_Translucent);
         setContentView(R.layout.main);
@@ -129,14 +128,6 @@ public class MainActivity extends Activity {
             people.setText("980");
             people.setTextColor(getResources().getColor(R.color.super_red));
         }
-    }
-    public void comExamples() {
-        User user = com.login("Andriod");
-        //Gang newGang = com.gangCreate("Andriod", "Bottlebois");
-        //Log.d("MainNewgang", newGang.toString());
-        //boolean invited = com.gangInvite(newGang.getId(), "Nelich");
-        //boolean accepted = com.gangAccept(newGang.getId(), "Nelich");
-        //boolean declined = com.gangDecline(newGang.getId(), "Nelich");
     }
 
     public void makeDates() {
