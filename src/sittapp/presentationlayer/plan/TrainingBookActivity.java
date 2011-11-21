@@ -71,7 +71,7 @@ public class TrainingBookActivity extends ListActivity {
 
 	//onClick methods
 	public void useStandPlanClick(View v) {
-		Intent myIntent = new Intent(v.getContext(), StandardizedPlanActivity.class);
+		Intent myIntent = new Intent(context, StandardizedPlanActivity.class);
 		startActivityForResult(myIntent, 0);        
 	}
 	
@@ -94,9 +94,9 @@ public class TrainingBookActivity extends ListActivity {
 	}
 	
 	public void addWorkoutClick(View v) {
-		Intent i = new Intent(v.getContext(), AddWorkoutActivity.class);
+		Intent i = new Intent(context, AddWorkoutActivity.class);
 		i.putExtra("plan", plan);
-		startActivityForResult(i,0);   
+		startActivityForResult(i,0);
 	}
 
 	private void generateWorkouts(ArrayList<Workout> workouts) {
