@@ -16,6 +16,7 @@ public class Workout implements Serializable  {
 	public String alert;
 	public ArrayList<WorkoutRepeat> repeat = new ArrayList<WorkoutRepeat>();
 	public String clock;
+	public Lesson lesson;
 	
 	public Workout() {
 		repeat.add(new WorkoutRepeat("MAN"));
@@ -35,10 +36,15 @@ public class Workout implements Serializable  {
 				strengthSelected[i] = gen.nextBoolean();
 			}
 		}
-		if (type.equals("CARDIO")) {
+		else if (type.equals("CARDIO")) {
 			for (int i=0; i<cardioSelected.length; i++) {
 				cardioSelected[i] = gen.nextBoolean();
 			}
+		}
+		else {
+			JointTraining jt = new JointTraining();
+			jt.testData();
+			lesson = jt.m.get(gen.nextInt(jt.m.size()));
 		}
 		int onLuck = 7;
 		for (WorkoutRepeat r : repeat) {
@@ -73,17 +79,20 @@ public class Workout implements Serializable  {
 				if (strengthSelected[i]) list.add(""+strengthItems[i]);
 			}
 		}
-		if (this.type.equals("CARDIO")) {
+		else if (this.type.equals("CARDIO")) {
 			for (int i=0; i<cardioSelected.length; i++) {
 				if (cardioSelected[i]) list.add(""+cardioItems[i]);
 			}
+		}
+		else {
+			return lesson.name;
 		}
 		return stringifyArrayList(list);
 	}
 	
 	public boolean isValid() {
 		if (type.equals("")) return false;
-		else return false;
+		else return true;
 	}
 	
 	private String stringifyArrayList(ArrayList<String> list) {

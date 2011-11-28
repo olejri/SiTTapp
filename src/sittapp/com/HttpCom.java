@@ -169,14 +169,4 @@ public class HttpCom {
 			return false;
 		}
 	}
-	
-	/// BACKUP SHIZZLE
-	
-    /*
-    String result = "{'name':'Andriod','gangs':[1],'gangInvites':[2,3],'gangobjs':[{'id':1,'name':'Datagutta','users':['Andriod']}],'ganginvobjs':[{'id':2,'name':'Datagutta','users':[]},{'id':3,'name':'Dudes','users':[]}]}";
-	try {
-		json = new JSONObject(result);
-	} catch (JSONException e1) {
-		e1.printStackTrace();
-	}*/
 }

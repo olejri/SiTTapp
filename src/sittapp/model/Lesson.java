@@ -3,11 +3,13 @@
  */
 package sittapp.model;
 
+import java.io.Serializable;
+
 /**
  * @author Nelich
  *
  */
-public class Lesson {
+public class Lesson implements Serializable {
     String name, date, info, time;
     boolean join;
     int full;
