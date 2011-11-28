@@ -119,7 +119,7 @@ public class TrainingNetworkActivity extends ListActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.pmlayout);
         final EditText name = (EditText)dialog.findViewById(R.id.editText1);
-        name.setHint("Gjeng navn");
+        name.setHint("Nettverks navn");
         name.setOnEditorActionListener(new OnEditorActionListener() {            
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (event != null&& (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
@@ -140,7 +140,7 @@ public class TrainingNetworkActivity extends ListActivity {
                 
                 String n = "" + name.getText();
                 if (n.equals("")) {
-                    Toast.makeText(mContext, "Du kan ikke opprette en gjeng uten navn!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Du kan ikke opprette et nettverk uten navn!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                 Gang gang = com.gangCreate(user.getName(), n);
@@ -180,7 +180,7 @@ public class TrainingNetworkActivity extends ListActivity {
             checked[i] = true;
         }
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Bli med i gjengen");
+        alert.setTitle("Bli med i nettverket");
         alert.setMultiChoiceItems(names, checked,
                 new DialogInterface.OnMultiChoiceClickListener() {
             public void onClick(DialogInterface dialog, int whichButton, boolean isChecked) {
